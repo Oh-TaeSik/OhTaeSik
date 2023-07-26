@@ -49,8 +49,7 @@ Packages
 .build/
 xcuserdata
 DerivedData/
-*.xcodeproj
-
+*.xcworkspacedata
 
 ### Xcode ###
 ## User settings
