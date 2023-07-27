@@ -18,6 +18,8 @@
 		95F55DDE2A70F6EE0048FD6B /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DDD2A70F6EE0048FD6B /* AppTabBarView.swift */; };
 		95F55DE02A70F7010048FD6B /* InputInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DDF2A70F7010048FD6B /* InputInfoView.swift */; };
 		95F55DE32A70F9340048FD6B /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DE22A70F9340048FD6B /* LaunchScreenView.swift */; };
+		95F55DE52A70FA640048FD6B /* FoodSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DE42A70FA640048FD6B /* FoodSearchView.swift */; };
+		95F55DE82A70FD190048FD6B /* FoodSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DE72A70FD190048FD6B /* FoodSearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		95F55DDD2A70F6EE0048FD6B /* AppTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
 		95F55DDF2A70F7010048FD6B /* InputInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInfoView.swift; sourceTree = "<group>"; };
 		95F55DE22A70F9340048FD6B /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		95F55DE42A70FA640048FD6B /* FoodSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchView.swift; sourceTree = "<group>"; };
+		95F55DE72A70FD190048FD6B /* FoodSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 		95F55DC62A70F6A30048FD6B /* OhTaeSik */ = {
 			isa = PBXGroup;
 			children = (
+				95F55DE62A70FD080048FD6B /* FoodSearch */,
 				95F55DE12A70F7490048FD6B /* TabBar */,
 				95F55DC72A70F6A30048FD6B /* OhTaeSikApp.swift */,
 				95F55DC92A70F6A30048FD6B /* ContentView.swift */,
@@ -94,6 +99,15 @@
 				95F55DDD2A70F6EE0048FD6B /* AppTabBarView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		95F55DE62A70FD080048FD6B /* FoodSearch */ = {
+			isa = PBXGroup;
+			children = (
+				95F55DE42A70FA640048FD6B /* FoodSearchView.swift */,
+				95F55DE72A70FD190048FD6B /* FoodSearchBar.swift */,
+			);
+			path = FoodSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F55DDE2A70F6EE0048FD6B /* AppTabBarView.swift in Sources */,
+				95F55DE82A70FD190048FD6B /* FoodSearchBar.swift in Sources */,
 				95F55DD62A70F6BF0048FD6B /* CustomTabBarView.swift in Sources */,
 				95F55DCA2A70F6A30048FD6B /* ContentView.swift in Sources */,
 				95F55DDA2A70F6DA0048FD6B /* TabBarItem.swift in Sources */,
@@ -174,6 +189,7 @@
 				95F55DE02A70F7010048FD6B /* InputInfoView.swift in Sources */,
 				95F55DC82A70F6A30048FD6B /* OhTaeSikApp.swift in Sources */,
 				95F55DD82A70F6D00048FD6B /* CustomTabBarContainerView.swift in Sources */,
+				95F55DE52A70FA640048FD6B /* FoodSearchView.swift in Sources */,
 				95F55DE32A70F9340048FD6B /* LaunchScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
