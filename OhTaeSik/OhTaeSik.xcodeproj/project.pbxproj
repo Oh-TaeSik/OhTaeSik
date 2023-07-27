@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AECD0E42A7216CB009707ED /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECD0E32A7216CB009707ED /* MyPageView.swift */; };
 		95F55DC82A70F6A30048FD6B /* OhTaeSikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DC72A70F6A30048FD6B /* OhTaeSikApp.swift */; };
 		95F55DCA2A70F6A30048FD6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DC92A70F6A30048FD6B /* ContentView.swift */; };
 		95F55DCC2A70F6A40048FD6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95F55DCB2A70F6A40048FD6B /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3AECD0E32A7216CB009707ED /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		95F55DC42A70F6A30048FD6B /* OhTaeSik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhTaeSik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F55DC72A70F6A30048FD6B /* OhTaeSikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhTaeSikApp.swift; sourceTree = "<group>"; };
 		95F55DC92A70F6A30048FD6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				95F55DD72A70F6D00048FD6B /* CustomTabBarContainerView.swift */,
 				95F55DD92A70F6DA0048FD6B /* TabBarItem.swift */,
 				95F55DDB2A70F6E40048FD6B /* TabBarItemPreferenceKey.swift */,
+				3AECD0E32A7216CB009707ED /* MyPageView.swift */,
 				95F55DDD2A70F6EE0048FD6B /* AppTabBarView.swift */,
 			);
 			path = TabBar;
@@ -173,6 +176,7 @@
 				95F55DDC2A70F6E40048FD6B /* TabBarItemPreferenceKey.swift in Sources */,
 				95F55DE02A70F7010048FD6B /* InputInfoView.swift in Sources */,
 				95F55DC82A70F6A30048FD6B /* OhTaeSikApp.swift in Sources */,
+				3AECD0E42A7216CB009707ED /* MyPageView.swift in Sources */,
 				95F55DD82A70F6D00048FD6B /* CustomTabBarContainerView.swift in Sources */,
 				95F55DE32A70F9340048FD6B /* LaunchScreenView.swift in Sources */,
 			);

@@ -15,7 +15,7 @@ struct AppTabBarView: View {
                 .tabBarItem(tab: .calendar, selection: $tabSelection)
             Color.blue
                 .tabBarItem(tab: .home, selection: $tabSelection)
-            Color.green
+            MyPageView()
                 .tabBarItem(tab: .profile, selection: $tabSelection)
         }
     }
@@ -36,7 +36,7 @@ extension AppTabBarView {
                     Text("Home")
                 }
             
-            Color.orange
+            MyPageView()
                 .tabItem {
                     Image(systemName: "Profile")
                     Text("Profile")
