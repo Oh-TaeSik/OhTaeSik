@@ -13,7 +13,7 @@ struct AppTabBarView: View {
         CustomTabBarContainerView(selection: $tabSelection) {
             Color.red
                 .tabBarItem(tab: .calendar, selection: $tabSelection)
-            Color.blue
+            CheckCalorieView()
                 .tabBarItem(tab: .home, selection: $tabSelection)
             Color.green
                 .tabBarItem(tab: .profile, selection: $tabSelection)
@@ -30,7 +30,7 @@ extension AppTabBarView {
                     Text("Calendar")
                 }
             
-            Color.blue
+            CheckCalorieView()
                 .tabItem {
                     Image(systemName: "Home")
                     Text("Home")
