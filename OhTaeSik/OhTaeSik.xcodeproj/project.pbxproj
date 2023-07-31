@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A272CA52A7103910026EB6E /* CheckCalorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A272CA42A7103910026EB6E /* CheckCalorieView.swift */; };
+		3AECD0E42A7216CB009707ED /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECD0E32A7216CB009707ED /* MyPageView.swift */; };
 		06327621FBFEF4BCE781DF50 /* Pods_OhTaeSik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5BC12B788C96ADAD4B413D /* Pods_OhTaeSik.framework */; };
 		951B6A652A7375AF00D7EDDC /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951B6A642A7375AF00D7EDDC /* UserData.swift */; };
 		95869A232A735B6600F6BA3C /* GoogleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95869A222A735B6600F6BA3C /* GoogleSignInView.swift */; };
@@ -22,9 +24,13 @@
 		95F55DDE2A70F6EE0048FD6B /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DDD2A70F6EE0048FD6B /* AppTabBarView.swift */; };
 		95F55DE02A70F7010048FD6B /* InputInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DDF2A70F7010048FD6B /* InputInfoView.swift */; };
 		95F55DE32A70F9340048FD6B /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DE22A70F9340048FD6B /* LaunchScreenView.swift */; };
+		95F55DE52A70FA640048FD6B /* FoodSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DE42A70FA640048FD6B /* FoodSearchView.swift */; };
+		95F55DE82A70FD190048FD6B /* FoodSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DE72A70FD190048FD6B /* FoodSearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A272CA42A7103910026EB6E /* CheckCalorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCalorieView.swift; sourceTree = "<group>"; };
+		3AECD0E32A7216CB009707ED /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		0A5BC12B788C96ADAD4B413D /* Pods_OhTaeSik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OhTaeSik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E1B39B10C9471E0B2FBE42 /* Pods-OhTaeSik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhTaeSik.release.xcconfig"; path = "Target Support Files/Pods-OhTaeSik/Pods-OhTaeSik.release.xcconfig"; sourceTree = "<group>"; };
 		951B6A642A7375AF00D7EDDC /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -44,6 +50,8 @@
 		95F55DDF2A70F7010048FD6B /* InputInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInfoView.swift; sourceTree = "<group>"; };
 		95F55DE22A70F9340048FD6B /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		A7AD8FCD355DD8863DCC839E /* Pods-OhTaeSik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhTaeSik.debug.xcconfig"; path = "Target Support Files/Pods-OhTaeSik/Pods-OhTaeSik.debug.xcconfig"; sourceTree = "<group>"; };
+		95F55DE42A70FA640048FD6B /* FoodSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchView.swift; sourceTree = "<group>"; };
+		95F55DE72A70FD190048FD6B /* FoodSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +113,13 @@
 		95F55DC62A70F6A30048FD6B /* OhTaeSik */ = {
 			isa = PBXGroup;
 			children = (
+				95F55DE62A70FD080048FD6B /* FoodSearch */,
 				95869A272A735CEC00F6BA3C /* Info.plist */,
 				95869A242A735B6B00F6BA3C /* Login */,
 				95F55DE12A70F7490048FD6B /* TabBar */,
 				95F55DC72A70F6A30048FD6B /* OhTaeSikApp.swift */,
 				95F55DC92A70F6A30048FD6B /* ContentView.swift */,
+				3A272CA42A7103910026EB6E /* CheckCalorieView.swift */,
 				95F55DCB2A70F6A40048FD6B /* Assets.xcassets */,
 				95F55DCD2A70F6A40048FD6B /* Preview Content */,
 				95F55DDF2A70F7010048FD6B /* InputInfoView.swift */,
@@ -134,9 +144,19 @@
 				95F55DD72A70F6D00048FD6B /* CustomTabBarContainerView.swift */,
 				95F55DD92A70F6DA0048FD6B /* TabBarItem.swift */,
 				95F55DDB2A70F6E40048FD6B /* TabBarItemPreferenceKey.swift */,
+				3AECD0E32A7216CB009707ED /* MyPageView.swift */,
 				95F55DDD2A70F6EE0048FD6B /* AppTabBarView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		95F55DE62A70FD080048FD6B /* FoodSearch */ = {
+			isa = PBXGroup;
+			children = (
+				95F55DE42A70FA640048FD6B /* FoodSearchView.swift */,
+				95F55DE72A70FD190048FD6B /* FoodSearchBar.swift */,
+			);
+			path = FoodSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,15 +275,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F55DDE2A70F6EE0048FD6B /* AppTabBarView.swift in Sources */,
+				95F55DE82A70FD190048FD6B /* FoodSearchBar.swift in Sources */,
 				95869A232A735B6600F6BA3C /* GoogleSignInView.swift in Sources */,
 				95F55DD62A70F6BF0048FD6B /* CustomTabBarView.swift in Sources */,
 				95F55DCA2A70F6A30048FD6B /* ContentView.swift in Sources */,
 				95F55DDA2A70F6DA0048FD6B /* TabBarItem.swift in Sources */,
 				951B6A652A7375AF00D7EDDC /* UserData.swift in Sources */,
 				95F55DDC2A70F6E40048FD6B /* TabBarItemPreferenceKey.swift in Sources */,
+				3A272CA52A7103910026EB6E /* CheckCalorieView.swift in Sources */,
 				95F55DE02A70F7010048FD6B /* InputInfoView.swift in Sources */,
 				95F55DC82A70F6A30048FD6B /* OhTaeSikApp.swift in Sources */,
+				3AECD0E42A7216CB009707ED /* MyPageView.swift in Sources */,
 				95F55DD82A70F6D00048FD6B /* CustomTabBarContainerView.swift in Sources */,
+				95F55DE52A70FA640048FD6B /* FoodSearchView.swift in Sources */,
 				95F55DE32A70F9340048FD6B /* LaunchScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
