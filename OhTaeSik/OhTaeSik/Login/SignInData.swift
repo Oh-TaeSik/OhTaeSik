@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserData {
+struct SignInData {
     let url: URL?
     let name: String
     let email: String
