@@ -1,0 +1,13 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'OhTaeSik' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'GoogleSignInSwift'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignInSwiftSupport'
+  pod 'GoogleSignIn'
+  # Pods for OhTaeSik
+
+end
