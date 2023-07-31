@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AppTabBarView: View {
+    @Binding var signInData: SignInData
+    
     @State private var tabSelection: TabBarItem = .home
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
@@ -15,7 +17,7 @@ struct AppTabBarView: View {
                 .tabBarItem(tab: .calendar, selection: $tabSelection)
             CheckCalorieView()
                 .tabBarItem(tab: .home, selection: $tabSelection)
-            MyPageView()
+            MyPageView(signInData: .constant(SignInData(url: signInData.url, name: signInData.name, email: "이메일")))
                 .tabBarItem(tab: .profile, selection: $tabSelection)
         }
     }
@@ -36,18 +38,11 @@ extension AppTabBarView {
                     Text("Home")
                 }
             
-            MyPageView()
+            MyPageView(signInData: .constant(SignInData(url: signInData.url, name: signInData.name, email: "이메일")))
                 .tabItem {
                     Image(systemName: "Profile")
                     Text("Profile")
                 }
         }
-    }
-}
-
-
-struct Previews_AppTabBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppTabBarView()
     }
 }
