@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import Firebase
 
 @main
 struct OhTaeSikApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GoogleSignInView(userData: UserData(url:nil, name:"", email:""))
+                .onOpenURL { url in GIDSignIn.sharedInstance.handle(url)
+                }
         }
     }
 }
