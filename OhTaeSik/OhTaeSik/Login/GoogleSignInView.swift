@@ -13,9 +13,9 @@ import GoogleSignInSwift
 struct GoogleSignInView: View {
     @State private var isLogined = false
     @State private var isAlert = false
-    @State private var userData: UserData
+    @State private var userData: SignInData
     
-    public init(isLogined: Bool = false, userData: UserData) {
+    public init(isLogined: Bool = false, userData: SignInData) {
         _isLogined = State(initialValue: isLogined)
         _userData = State(initialValue: userData)
     }
@@ -28,7 +28,7 @@ struct GoogleSignInView: View {
                 } label: {
                     Text("구글 로그인")
                 }
-            }.navigationDestination(isPresented: $isLogined, destination: { MyPageView(userData: $userData)})
+            }.navigationDestination(isPresented: $isLogined, destination: { AppTabBarView(signInData: $userData)})
         }
         .onAppear(perform: {
             checkState()
@@ -48,7 +48,7 @@ struct GoogleSignInView: View {
                 guard let profile = user?.profile else {
                     return
                 }
-                let data = UserData(url: profile.imageURL(withDimension: 180), name: profile.name, email: profile.email)
+                let data = SignInData(url: profile.imageURL(withDimension: 180), name: profile.name, email: profile.email)
                 userData = data
                 isLogined = true
                 print(isLogined)
@@ -67,7 +67,7 @@ struct GoogleSignInView: View {
             guard let profile = result.user.profile else {
                 return
             }
-            let data = UserData(url: profile.imageURL(withDimension: 180), name: profile.name, email: profile.email)
+            let data = SignInData(url: profile.imageURL(withDimension: 180), name: profile.name, email: profile.email)
             userData = data
             isLogined = true
         }

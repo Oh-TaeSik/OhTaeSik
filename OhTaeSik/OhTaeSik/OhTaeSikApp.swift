@@ -13,7 +13,7 @@ import Firebase
 struct OhTaeSikApp: App {
     var body: some Scene {
         WindowGroup {
-            GoogleSignInView(userData: UserData(url:nil, name:"", email:""))
+            GoogleSignInView(userData: SignInData(url:nil, name:"", email:""))
                 .onOpenURL { url in GIDSignIn.sharedInstance.handle(url)
                 }
         }
