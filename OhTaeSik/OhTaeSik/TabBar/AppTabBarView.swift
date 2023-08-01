@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct AppTabBarView: View {
+    @Binding var signInData: SignInData
+    
     @State private var tabSelection: TabBarItem = .home
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
             Color.red
                 .tabBarItem(tab: .calendar, selection: $tabSelection)
-            Color.blue
+            CheckCalorieView()
                 .tabBarItem(tab: .home, selection: $tabSelection)
-            Color.green
+            MyPageView(signInData: .constant(SignInData(url: signInData.url, name: signInData.name, email: "이메일")))
                 .tabBarItem(tab: .profile, selection: $tabSelection)
         }
     }
@@ -30,24 +32,17 @@ extension AppTabBarView {
                     Text("Calendar")
                 }
             
-            Color.blue
+            CheckCalorieView()
                 .tabItem {
                     Image(systemName: "Home")
                     Text("Home")
                 }
             
-            Color.orange
+            MyPageView(signInData: .constant(SignInData(url: signInData.url, name: signInData.name, email: "이메일")))
                 .tabItem {
                     Image(systemName: "Profile")
                     Text("Profile")
                 }
         }
-    }
-}
-
-
-struct Previews_AppTabBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
