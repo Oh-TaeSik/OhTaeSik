@@ -31,6 +31,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AppTabBarView()
+        AppTabBarView(signInData: .constant(SignInData(url: nil, name: "이름", email: "이메일")))
     }
 }
