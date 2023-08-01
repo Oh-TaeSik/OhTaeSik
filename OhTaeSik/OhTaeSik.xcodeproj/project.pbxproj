@@ -10,9 +10,10 @@
 		06327621FBFEF4BCE781DF50 /* Pods_OhTaeSik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5BC12B788C96ADAD4B413D /* Pods_OhTaeSik.framework */; };
 		3A272CA52A7103910026EB6E /* CheckCalorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A272CA42A7103910026EB6E /* CheckCalorieView.swift */; };
 		3AECD0E42A7216CB009707ED /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECD0E32A7216CB009707ED /* MyPageView.swift */; };
+		5C1AA87F2A78A6F100B34BA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AA87E2A78A6F100B34BA5 /* GoogleService-Info.plist */; };
+		5CDE18E22A70FB0E00DDE3D0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE18E12A70FB0E00DDE3D0 /* CalendarView.swift */; };
 		951B6A652A7375AF00D7EDDC /* SignInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951B6A642A7375AF00D7EDDC /* SignInData.swift */; };
 		95869A232A735B6600F6BA3C /* GoogleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95869A222A735B6600F6BA3C /* GoogleSignInView.swift */; };
-		95869A262A735CC500F6BA3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95869A252A735CC500F6BA3C /* GoogleService-Info.plist */; };
 		95F55DC82A70F6A30048FD6B /* OhTaeSikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DC72A70F6A30048FD6B /* OhTaeSikApp.swift */; };
 		95F55DCA2A70F6A30048FD6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DC92A70F6A30048FD6B /* ContentView.swift */; };
 		95F55DCC2A70F6A40048FD6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95F55DCB2A70F6A40048FD6B /* Assets.xcassets */; };
@@ -33,9 +34,10 @@
 		3A272CA42A7103910026EB6E /* CheckCalorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCalorieView.swift; sourceTree = "<group>"; };
 		3AECD0E32A7216CB009707ED /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		54E1B39B10C9471E0B2FBE42 /* Pods-OhTaeSik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhTaeSik.release.xcconfig"; path = "Target Support Files/Pods-OhTaeSik/Pods-OhTaeSik.release.xcconfig"; sourceTree = "<group>"; };
+		5C1AA87E2A78A6F100B34BA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5CDE18E12A70FB0E00DDE3D0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		951B6A642A7375AF00D7EDDC /* SignInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInData.swift; sourceTree = "<group>"; };
 		95869A222A735B6600F6BA3C /* GoogleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInView.swift; sourceTree = "<group>"; };
-		95869A252A735CC500F6BA3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95869A272A735CEC00F6BA3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95F55DC42A70F6A30048FD6B /* OhTaeSik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhTaeSik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F55DC72A70F6A30048FD6B /* OhTaeSikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhTaeSikApp.swift; sourceTree = "<group>"; };
@@ -96,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				95F55DC62A70F6A30048FD6B /* OhTaeSik */,
-				95F55DC52A70F6A30048FD6B /* Products */,
 				5EA81F58EF0A60AEE426314C /* Pods */,
 				7CE273ECAE25D61E394F7625 /* Frameworks */,
 			);
@@ -108,6 +109,7 @@
 				95F55DC42A70F6A30048FD6B /* OhTaeSik.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		95F55DC62A70F6A30048FD6B /* OhTaeSik */ = {
@@ -124,7 +126,9 @@
 				95F55DCD2A70F6A40048FD6B /* Preview Content */,
 				95F55DDF2A70F7010048FD6B /* InputInfoView.swift */,
 				95F55DE22A70F9340048FD6B /* LaunchScreenView.swift */,
-				95869A252A735CC500F6BA3C /* GoogleService-Info.plist */,
+				95F55DC52A70F6A30048FD6B /* Products */,
+				5CDE18E12A70FB0E00DDE3D0 /* CalendarView.swift */,
+				5C1AA87E2A78A6F100B34BA5 /* GoogleService-Info.plist */,
 			);
 			path = OhTaeSik;
 			sourceTree = "<group>";
@@ -221,7 +225,7 @@
 			files = (
 				95F55DCF2A70F6A40048FD6B /* Preview Assets.xcassets in Resources */,
 				95F55DCC2A70F6A40048FD6B /* Assets.xcassets in Resources */,
-				95869A262A735CC500F6BA3C /* GoogleService-Info.plist in Resources */,
+				5C1AA87F2A78A6F100B34BA5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CDE18E22A70FB0E00DDE3D0 /* CalendarView.swift in Sources */,
 				95F55DDE2A70F6EE0048FD6B /* AppTabBarView.swift in Sources */,
 				95F55DE82A70FD190048FD6B /* FoodSearchBar.swift in Sources */,
 				95869A232A735B6600F6BA3C /* GoogleSignInView.swift in Sources */,
@@ -418,7 +423,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OhTaeSik/Preview Content\"";
-				DEVELOPMENT_TEAM = 54SXKWMA32;
+				DEVELOPMENT_TEAM = D8KHM6Q8SA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OhTaeSik/Info.plist;
@@ -449,7 +454,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OhTaeSik/Preview Content\"";
-				DEVELOPMENT_TEAM = 54SXKWMA32;
+				DEVELOPMENT_TEAM = D8KHM6Q8SA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OhTaeSik/Info.plist;
