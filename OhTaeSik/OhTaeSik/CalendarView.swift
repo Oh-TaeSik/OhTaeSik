@@ -11,6 +11,7 @@ struct CalendarView: View {
     @State private var date = Date()
     var body: some View {
         NavigationView {
+            
             VStack {
                 DatePicker(
                 "Start Date",
