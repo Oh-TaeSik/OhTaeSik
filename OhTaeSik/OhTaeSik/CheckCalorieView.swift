@@ -10,38 +10,49 @@ import SwiftUI
 struct CheckCalorieView: View {
     var body: some View {
         NavigationView {
-            VStack(spacing: 30) {
+            VStack {
+                NavigationLink {
+                    PieChartView(values: [1234, 543, 995], names: ["탄수화물", "단백질", "지방"], formatter: {value in String(format: "%.1f(kcal)", value)})
+                } label: {
+                    SummaryView()
+                        .navigationTitle("오태식")
+                }
                 Spacer()
-                SummaryView()
-                    .navigationTitle("오태식")
-                   
-                
                 List() {
                     NavigationLink {
-                        Color.red
+                        FoodSearchView()
                     } label: {
                         Image(systemName: "hourglass.bottomhalf.filled")
+                            .resizable()
                             .foregroundStyle(.brown, .brown, .white)
                             .background(.gray)
-                            .frame(width: 10)
-                        Text("아침")
+                            .frame(width: 40)
+                        HStack {
+                            Text("아침")
+                            Text("0 / 1161kcal")
+                        }
                     }
                     NavigationLink {
-                        Color.red
+                        FoodSearchView()
                     } label: {
                         Image(systemName: "cup.and.saucer.fill")
+                            .resizable()
                             .foregroundStyle(.brown, .brown, .white)
-                            .frame(width: 10)
-                        Text("점심")
+                            .frame(width: 40)
+                        HStack {
+                            Text("점심")
+                            Text("0 / 1161kcal")
+                        }
                     }
                     NavigationLink {
-                        Color.red
+                        FoodSearchView()
                     } label: {
                         HStack {
                             Image(systemName: "fork.knife.circle")
+                                .resizable()
                                 .foregroundStyle(.brown, .brown, .white)
-                                .frame(width: 10)
-                            VStack {
+                                .frame(width: 40)
+                            HStack {
                                 Text("저녁")
                                 Text("0 / 1161kcal")
                             }
@@ -49,20 +60,22 @@ struct CheckCalorieView: View {
                         
                     }
                     NavigationLink {
-                        Color.red
+                        FoodSearchView()
                     } label: {
                         Image(systemName: "birthday.cake")
+                            .resizable()
                             .foregroundStyle(.brown, .brown, .white)
-                            .frame(width: 10)
-                        Text("간식")
+                            .frame(width: 40)
+                        HStack {
+                            Text("간식")
+                            Text("0 / 1161kcal")
+                        }
                     }
                 }
-                
+                Spacer()
             }
-            
         }
-        .offset(y:-30)
-        .navigationBarBackButtonHidden()
+        .background(.black)
     }
 }
 
@@ -75,38 +88,52 @@ struct CheckCalorieView_Previews: PreviewProvider {
 struct SummaryView: View {
     var body: some View {
         VStack {
-            HStack(spacing: 60) {
+            HStack {
+                Spacer()
                 VStack {
-                    Text("섭취 칼로리")
+                    Text("섭취량")
+                        .bold()
                     Text("232kcal")
                 }
+                Spacer()
                 VStack {
                     Text("잔여 칼로리")
+                        .bold()
                     Text("3232kcal")
                 }
+                Spacer()
             }
             .padding(.bottom)
-
-            HStack(spacing: 60) {
-                VStack {
-                    Text("단백질")
-                    Text("120g")
-                }
+            
+            HStack {
+                Spacer()
                 VStack {
                     Text("탄수화물")
+                        .bold()
                     Text("232g")
-                }.offset(x:-5)
+                }
+                Spacer()
+                VStack {
+                    Text("단백질")
+                        .bold()
+                    Text("120g")
+                }
+                Spacer()
                 VStack {
                     Text("지방")
+                        .bold()
                     Text("30g")
                 }
+                Spacer()
             }
         }
+        .foregroundColor(Color.black)
+        .padding()
         .frame(width: UIScreen.main.bounds.width*0.90)
         .frame(height: 150)
         .overlay (
             RoundedRectangle(cornerRadius: 20)
-                .stroke(lineWidth: 0.3)
+                .stroke(lineWidth: 1)
         )
     }
 }
