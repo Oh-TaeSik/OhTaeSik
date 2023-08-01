@@ -9,7 +9,6 @@
 ### Firebase Patch ###
 .runtimeconfig.json
 .firebase/
-GoogleService-Info.plist
 
 ### macOS ###
 # General
@@ -67,6 +66,5 @@ xcuserdata/
 
 ## xcode 확장자 
 *.xcuserstate
-*.plist
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,firebase,xcode,swiftpackagemanager
