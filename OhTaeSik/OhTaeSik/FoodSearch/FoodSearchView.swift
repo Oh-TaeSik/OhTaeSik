@@ -38,6 +38,7 @@ struct FoodSearchView: View {
             }
             .navigationBarTitle("무엇을 드셨나요")
             .font(.system(size: 25, weight: .semibold))
+            
                         
         }
     }

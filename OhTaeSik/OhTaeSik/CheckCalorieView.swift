@@ -76,6 +76,7 @@ struct CheckCalorieView: View {
             }
         }
         .background(.black)
+        .navigationBarBackButtonHidden()
     }
 }
 
