@@ -110,6 +110,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		95BAF79C2A7A24A100CAD729 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				95F55DDF2A70F7010048FD6B /* InputInfoView.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
 		95F55DBB2A70F6A30048FD6B = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +139,7 @@
 		95F55DC62A70F6A30048FD6B /* OhTaeSik */ = {
 			isa = PBXGroup;
 			children = (
+				95BAF79C2A7A24A100CAD729 /* UserInfo */,
 				5C1AA8802A78BFE600B34BA5 /* Chart */,
 				95F55DE62A70FD080048FD6B /* FoodSearch */,
 				95869A272A735CEC00F6BA3C /* Info.plist */,
@@ -142,7 +151,6 @@
 				3A272CA42A7103910026EB6E /* CheckCalorieView.swift */,
 				95F55DCB2A70F6A40048FD6B /* Assets.xcassets */,
 				95F55DCD2A70F6A40048FD6B /* Preview Content */,
-				95F55DDF2A70F7010048FD6B /* InputInfoView.swift */,
 				95F55DE22A70F9340048FD6B /* LaunchScreenView.swift */,
 				95F55DC52A70F6A30048FD6B /* Products */,
 				5CDE18E12A70FB0E00DDE3D0 /* CalendarView.swift */,
