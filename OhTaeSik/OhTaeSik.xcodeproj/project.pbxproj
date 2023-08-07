@@ -16,7 +16,11 @@
 		5C1AA8862A78C05400B34BA5 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AA8852A78C05400B34BA5 /* PieSliceView.swift */; };
 		5CDE18E22A70FB0E00DDE3D0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE18E12A70FB0E00DDE3D0 /* CalendarView.swift */; };
 		951B6A652A7375AF00D7EDDC /* SignInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951B6A642A7375AF00D7EDDC /* SignInData.swift */; };
+		95329FC62A7C0FBB008F3FCF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95329FC52A7C0FBB008F3FCF /* AppState.swift */; };
 		95869A232A735B6600F6BA3C /* GoogleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95869A222A735B6600F6BA3C /* GoogleSignInView.swift */; };
+		95BAF79E2A7A254E00CAD729 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAF79D2A7A254E00CAD729 /* User.swift */; };
+		95D89F082A7CCD7400B70D40 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D89F072A7CCD7400B70D40 /* UserStore.swift */; };
+		95D89F0A2A7CCEF200B70D40 /* AddNewUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D89F092A7CCEF200B70D40 /* AddNewUserInfoView.swift */; };
 		95F55DC82A70F6A30048FD6B /* OhTaeSikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DC72A70F6A30048FD6B /* OhTaeSikApp.swift */; };
 		95F55DCA2A70F6A30048FD6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DC92A70F6A30048FD6B /* ContentView.swift */; };
 		95F55DCC2A70F6A40048FD6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95F55DCB2A70F6A40048FD6B /* Assets.xcassets */; };
@@ -43,8 +47,12 @@
 		5C1AA8852A78C05400B34BA5 /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
 		5CDE18E12A70FB0E00DDE3D0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		951B6A642A7375AF00D7EDDC /* SignInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInData.swift; sourceTree = "<group>"; };
+		95329FC52A7C0FBB008F3FCF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		95869A222A735B6600F6BA3C /* GoogleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInView.swift; sourceTree = "<group>"; };
 		95869A272A735CEC00F6BA3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95BAF79D2A7A254E00CAD729 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		95D89F072A7CCD7400B70D40 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		95D89F092A7CCEF200B70D40 /* AddNewUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUserInfoView.swift; sourceTree = "<group>"; };
 		95F55DC42A70F6A30048FD6B /* OhTaeSik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhTaeSik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F55DC72A70F6A30048FD6B /* OhTaeSikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhTaeSikApp.swift; sourceTree = "<group>"; };
 		95F55DC92A70F6A30048FD6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +118,17 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		95BAF79C2A7A24A100CAD729 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				95F55DDF2A70F7010048FD6B /* InputInfoView.swift */,
+				95BAF79D2A7A254E00CAD729 /* User.swift */,
+				95D89F072A7CCD7400B70D40 /* UserStore.swift */,
+				95D89F092A7CCEF200B70D40 /* AddNewUserInfoView.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
 		95F55DBB2A70F6A30048FD6B = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +150,7 @@
 		95F55DC62A70F6A30048FD6B /* OhTaeSik */ = {
 			isa = PBXGroup;
 			children = (
+				95BAF79C2A7A24A100CAD729 /* UserInfo */,
 				5C1AA8802A78BFE600B34BA5 /* Chart */,
 				95F55DE62A70FD080048FD6B /* FoodSearch */,
 				95869A272A735CEC00F6BA3C /* Info.plist */,
@@ -142,11 +162,11 @@
 				3A272CA42A7103910026EB6E /* CheckCalorieView.swift */,
 				95F55DCB2A70F6A40048FD6B /* Assets.xcassets */,
 				95F55DCD2A70F6A40048FD6B /* Preview Content */,
-				95F55DDF2A70F7010048FD6B /* InputInfoView.swift */,
 				95F55DE22A70F9340048FD6B /* LaunchScreenView.swift */,
 				95F55DC52A70F6A30048FD6B /* Products */,
 				5CDE18E12A70FB0E00DDE3D0 /* CalendarView.swift */,
 				5C1AA87E2A78A6F100B34BA5 /* GoogleService-Info.plist */,
+				95329FC52A7C0FBB008F3FCF /* AppState.swift */,
 			);
 			path = OhTaeSik;
 			sourceTree = "<group>";
@@ -302,8 +322,12 @@
 				95F55DD62A70F6BF0048FD6B /* CustomTabBarView.swift in Sources */,
 				95F55DCA2A70F6A30048FD6B /* ContentView.swift in Sources */,
 				95F55DDA2A70F6DA0048FD6B /* TabBarItem.swift in Sources */,
+				95D89F0A2A7CCEF200B70D40 /* AddNewUserInfoView.swift in Sources */,
 				951B6A652A7375AF00D7EDDC /* SignInData.swift in Sources */,
+				95BAF79E2A7A254E00CAD729 /* User.swift in Sources */,
+				95329FC62A7C0FBB008F3FCF /* AppState.swift in Sources */,
 				95F55DDC2A70F6E40048FD6B /* TabBarItemPreferenceKey.swift in Sources */,
+				95D89F082A7CCD7400B70D40 /* UserStore.swift in Sources */,
 				3A272CA52A7103910026EB6E /* CheckCalorieView.swift in Sources */,
 				5C1AA8842A78C03700B34BA5 /* PieChartRows.swift in Sources */,
 				95F55DE02A70F7010048FD6B /* InputInfoView.swift in Sources */,
