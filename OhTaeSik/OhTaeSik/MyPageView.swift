@@ -7,13 +7,13 @@
 
 import SwiftUI
 import GoogleSignIn
+import FirebaseAuth
 
 struct MyPageView: View {
-    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var appState: AppState
     @Binding var signInData: SignInData
-    
+    @Binding var userData: User
     @State var nickname: String = ""
-    @State var calorie: String = ""
     
     var body: some View {
         VStack(spacing: 10){
@@ -38,50 +38,34 @@ struct MyPageView: View {
                 
             }
             
-            VStack {
-                TextField("키", text: $nickname)
-                    .padding()
-                    .frame(width: 300)
-                    .background(Color(uiColor: .secondarySystemBackground))
-                    .cornerRadius(14)
-                    .padding(10)
+            VStack(spacing: 5){
+                Text(userData.height + " cm")
+                    .font(.system(size: 20, weight: .semibold))
                 
-                TextField("몸무게", text: $nickname)
-                    .padding()
-                    .frame(width: 300)
-                    .background(Color(uiColor: .secondarySystemBackground))
-                    .cornerRadius(14)
-                    .padding(10)
-            }
+                Text(userData.weight + " kg")
+                    .font(.system(size: 20, weight: .semibold))
+                    
+            }.padding(30)
             
-            VStack {
+            VStack(spacing: 30) {
                 Text("1일 권장 칼로리")
                     .foregroundColor(Color.red)
+                    .font(.system(size: 24, weight: .semibold))
+                    .shadow(radius: 2)
+                Text(String(userData.calorie) + "kcal")
                     .font(.system(size: 26, weight: .bold))
                     .shadow(radius: 2)
-                    .padding()
-                Text("\(calorie) Kcal")
-                    .bold()
-            }
+            }.padding(40)
+                .background(Color(uiColor: .secondarySystemBackground))
+                .cornerRadius(14)
             
             VStack {
                 Button {
-                    // 업데이트 누를 시 키, 몸무게 입력 정보가 갱신되어 권장칼로리 계산됨.
-                } label: {
-                    Text("업데이트")
-                        .padding()
-                        .frame(width: 300)
-                        .background(.gray)
-                        .foregroundColor(.white)
-                        .cornerRadius(14)
-                        .padding(30)
-                        .bold()
-                }
-                Button {
                     GIDSignIn.sharedInstance.signOut()
-                    dismiss()
+                    appState.rootViewId = UUID()
                 } label: {
                     Text("로그아웃")
+                        .padding(50)
                         .foregroundColor(.black)
                         .bold()
                         .padding(.horizontal)
@@ -89,11 +73,5 @@ struct MyPageView: View {
                 Spacer()
             }
         }
-    }
-}
-
-struct MyPageView_Previews: PreviewProvider {
-    static var previews: some View {
-        MyPageView(signInData: .constant(SignInData(url: nil, name: "이름", email: "이메일")))
     }
 }
