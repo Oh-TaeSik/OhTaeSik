@@ -11,11 +11,19 @@ import Firebase
 
 @main
 struct OhTaeSikApp: App {
+    @ObservedObject var appState = AppState()
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            GoogleSignInView(userData: SignInData(url:nil, name:"", email:""))
+            GoogleSignInView(signInData: SignInData(url:nil, name:"", email:""))
                 .onOpenURL { url in GIDSignIn.sharedInstance.handle(url)
                 }
+                .id(appState.rootViewId)
+                .environmentObject(appState)
         }
     }
 }
