@@ -20,13 +20,21 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct OhTaeSikApp: App {
+    @ObservedObject var appState = AppState()
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            GoogleSignInView(userData: SignInData(url:nil, name:"", email:""))
+            GoogleSignInView(signInData: SignInData(url:nil, name:"", email:""))
                 .onOpenURL { url in GIDSignIn.sharedInstance.handle(url)
                 }
+                .id(appState.rootViewId)
+                .environmentObject(appState)
         }
     }
 }
