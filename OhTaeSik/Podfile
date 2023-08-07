@@ -6,6 +6,8 @@ target 'OhTaeSik' do
   use_frameworks!
   pod 'GoogleSignInSwift'
   pod 'Firebase/Auth'
+  pod 'FirebaseDatabaseSwift'
+  pod 'FirebaseDatabase'
   pod 'GoogleSignInSwiftSupport'
   pod 'GoogleSignIn'
   # Pods for OhTaeSik

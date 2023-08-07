@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CheckCalorieView: View {
     var body: some View {
+
         NavigationView {
             VStack {
                 NavigationLink {
@@ -20,7 +21,7 @@ struct CheckCalorieView: View {
                 Spacer()
                 List() {
                     NavigationLink {
-                        FoodSearchView()
+                        DietView()
                     } label: {
                         Image(systemName: "hourglass.bottomhalf.filled")
                             .resizable()
@@ -33,7 +34,7 @@ struct CheckCalorieView: View {
                         }
                     }
                     NavigationLink {
-                        FoodSearchView()
+                        DietView()
                     } label: {
                         Image(systemName: "cup.and.saucer.fill")
                             .resizable()
@@ -45,7 +46,7 @@ struct CheckCalorieView: View {
                         }
                     }
                     NavigationLink {
-                        FoodSearchView()
+                        DietView()
                     } label: {
                         HStack {
                             Image(systemName: "fork.knife.circle")
@@ -57,10 +58,9 @@ struct CheckCalorieView: View {
                                 Text("0 / 1161kcal")
                             }
                         }
-                        
                     }
                     NavigationLink {
-                        FoodSearchView()
+                        DietView()
                     } label: {
                         Image(systemName: "birthday.cake")
                             .resizable()
