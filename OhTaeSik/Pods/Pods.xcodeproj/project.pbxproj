@@ -1132,8 +1132,8 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CAD3534FC55B0333104E5117C0A9A324;
-			remoteInfo = GoogleSignIn;
+			remoteGlobalIDString = 4402AFF83DBDC4DD07E198685FDC2DF2;
+			remoteInfo = FirebaseCore;
 		};
 		13BD8AC10277A78EC521251F33F52E6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1146,8 +1146,8 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6AE4A3D573DED275B034E20506596C62;
-			remoteInfo = FirebaseAuth;
+			remoteGlobalIDString = 2BBF7206D7FAC92C82A042A99C4A98F8;
+			remoteInfo = PromisesObjC;
 		};
 		274BEBD4C45503CE7F9DBA1648230E17 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1258,8 +1258,8 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD28B439BE8B17D9339D9B526F144347;
-			remoteInfo = FirebaseAppCheckInterop;
+			remoteGlobalIDString = 5C642AA10FB29936669CC269F42079C6;
+			remoteInfo = AppAuth;
 		};
 		6345747616D3595A279435CF8AF18D42 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2628,9 +2628,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91D9F19FB3E77A4F26CDAF22311B3B09 /* Foundation.framework in Frameworks */,
-				7B228D3DE11F2B4B314728600D767FD4 /* Security.framework in Frameworks */,
-				7BFE31DB010759A58DA35158B2F581ED /* SystemConfiguration.framework in Frameworks */,
+				583C30A05E70888990BE81F96BCDC441 /* Foundation.framework in Frameworks */,
+				4CF4277C7E40245C9B0D7A59BED5FDCE /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3003,16 +3002,9 @@
 		39D5314A54DE201545BA6654A67AED34 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				17A938F176E02E639168F71DE9FDE068 /* AppDelegateSwizzler */,
-				C1A3BE05DF7F6CE9FE5FC9777AA62D67 /* Environment */,
-				F61C0C87E3B3DF69B6B12D09ED7403C7 /* Logger */,
-				EFE1AAE007FBB548FC0D495C2F59A60A /* Network */,
-				6A15B60130E0714C90D39A461BF864AE /* NSData+zlib */,
-				BA3E8F63CDFBDEACB4DB7271CE1A6EF0 /* Reachability */,
-				586096545C60CE49176849CD8A97DC84 /* Support Files */,
+				B7717599B0270A4BBD3E04CDA1280CF8 /* Pods-OhTaeSik */,
 			);
-			name = GoogleUtilities;
-			path = GoogleUtilities;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		456B9E86E89EDC9D3DB05A8DB8BD64C3 /* CoreOnly */ = {
@@ -3510,8 +3502,8 @@
 				D17FF1E8E27D7A74CA5D24D99596C8A6 /* GTMAppAuth.debug.xcconfig */,
 				A40740115ED565ED7091B06953F5C02C /* GTMAppAuth.release.xcconfig */,
 			);
-			name = FirebaseDatabase;
-			path = FirebaseDatabase;
+			name = "Support Files";
+			path = "../Target Support Files/GTMAppAuth";
 			sourceTree = "<group>";
 		};
 		6C6E542C6F34394674AD6A66B82FFCC3 /* FirebaseDatabaseSwift */ = {
@@ -4120,21 +4112,6 @@
 				A6F4F960614341B316DA9BA52529E535 /* FirebaseDatabaseSwift.debug.xcconfig */,
 				C6FFE4C02C54ACFE6AD14B5D79812076 /* FirebaseDatabaseSwift.release.xcconfig */,
 			);
-			name = GTMAppAuth;
-			path = GTMAppAuth;
-			sourceTree = "<group>";
-		};
-		E02834431CD93AF1517D2227DA41A10D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CBF6D0FFA2560A848EE13A9112B9DBAA /* AppAuth.modulemap */,
-				553D28F88DBAD4DE9A0C36A280028D0D /* AppAuth-dummy.m */,
-				A4F4669D53CF003344CAF7881E426849 /* AppAuth-Info.plist */,
-				504C7813E81CBB055D8DC722D15C1401 /* AppAuth-prefix.pch */,
-				F51B05B452DA74D955AB1040C8BB8035 /* AppAuth-umbrella.h */,
-				A99827658A1E94A5F06CDF5E74ACFACE /* AppAuth.debug.xcconfig */,
-				4C176143B5E1AC8A16823FBD3E50D7B7 /* AppAuth.release.xcconfig */,
-			);
 			name = "Support Files";
 			path = "../Target Support Files/FirebaseDatabaseSwift";
 			sourceTree = "<group>";
@@ -4427,20 +4404,6 @@
 				9EB5A1068FFE53257ED8E46188210211 /* FirebaseCoreExtension-umbrella.h */,
 				E6537E7D573C61F5BDBCF6E46A679E04 /* FirebaseCoreExtension.debug.xcconfig */,
 				9ECE64EE58CFA563B92E26B6FDEA8ACE /* FirebaseCoreExtension.release.xcconfig */,
-			);
-			name = "leveldb-library";
-			path = "leveldb-library";
-			sourceTree = "<group>";
-		};
-		ED84AF4478826B81DB891D2F6620F774 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B724950689AD6022C74FE58EFA52A08D /* FirebaseCore.modulemap */,
-				978DBCDCC89AED1F29C46C8E0713EBC4 /* FirebaseCore-dummy.m */,
-				5F19BAB30955C9FCCDE6D4D1B302D34F /* FirebaseCore-Info.plist */,
-				AC97E3B88D568D299151628AA2D7FE49 /* FirebaseCore-umbrella.h */,
-				D79CDE1C7D1CB7CCB802F24EF5F163A9 /* FirebaseCore.debug.xcconfig */,
-				15924AC4031923A6741B175A881EA8B3 /* FirebaseCore.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FirebaseCoreExtension";
@@ -5035,72 +4998,6 @@
 				52DCCBBE231688834A4430EC4DC5E2F3 /* OIDTokenUtilities.h in Headers */,
 				1D66D60A6F32CFF16C509D1396D0EFDE /* OIDURLQueryComponent.h in Headers */,
 				4A24503FE25D6B716A3E4E138451B70F /* OIDURLSessionProvider.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6D316D78175BC0BF1D8F17F85CBF5116 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9CE494DB8DA5578F22C084C109B265B9 /* FBLPromise.h in Headers */,
-				9C2B6131A73DDC5B53C1135F57AD3436 /* FBLPromise+All.h in Headers */,
-				1A33681B44EF9EBA8C87521DC335128F /* FBLPromise+Always.h in Headers */,
-				4B9A5832EDFC3FED8FBB7708866F5314 /* FBLPromise+Any.h in Headers */,
-				82E86284D8D2F1F67E7838C7A7513C2C /* FBLPromise+Async.h in Headers */,
-				120C9EA835DC6E95035AFE1B9D432DE8 /* FBLPromise+Await.h in Headers */,
-				4AC90F8EC3C78CFB636DE5BF353BB931 /* FBLPromise+Catch.h in Headers */,
-				DE9E9D502040152ABDC8A60736C34F08 /* FBLPromise+Delay.h in Headers */,
-				E973B00365C86797AB827718FD075326 /* FBLPromise+Do.h in Headers */,
-				CDDE13B42DCC53ECD7822C820579D986 /* FBLPromise+Race.h in Headers */,
-				F64CB94FC55E361A4636F31AD150F63B /* FBLPromise+Recover.h in Headers */,
-				C1C43279CA4714BD11B4C5E732B68244 /* FBLPromise+Reduce.h in Headers */,
-				0F46112C700DDCF8B323F3C4B7C7167C /* FBLPromise+Retry.h in Headers */,
-				614852E3543FB9F60B94EAA8A38FE428 /* FBLPromise+Testing.h in Headers */,
-				52E1BCFFA1DA2C8B2880B1B156A48344 /* FBLPromise+Then.h in Headers */,
-				E761C60FDA2D336A3CF08733EC9591B3 /* FBLPromise+Timeout.h in Headers */,
-				020DDFE93E5A3B4ADA4C8D3156CFF5F7 /* FBLPromise+Validate.h in Headers */,
-				DE428DDA93D1BD2704587EEAD1A3E4FD /* FBLPromise+Wrap.h in Headers */,
-				51A9F24E75C68DE0F67E578ACB8E339B /* FBLPromiseError.h in Headers */,
-				E78A70BA4D33FFEBA43B587DCF3FD212 /* FBLPromisePrivate.h in Headers */,
-				9D7CC24F0D6012CFC9053CE7B2967A5B /* FBLPromises.h in Headers */,
-				AC9FBDCE8D095AE3EB437D5D094B794C /* PromisesObjC-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7142F560E89B37E14E84871C29C03E13 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D2099AC0ACA30C6960CA71150C0D709F /* FirebaseSharedSwift-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		74041E462C11ED8BCC9E56A015333481 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08BFC40985AAA6191F000A81D5771485 /* FIRAnalyticsConfiguration.h in Headers */,
-				6EB7123E18216033D793A284A1191090 /* FIRApp.h in Headers */,
-				7025955D91A10AE51A2C59F735E81035 /* FIRAppInternal.h in Headers */,
-				E970BE563B90E6A50914D13A9D8DFF4E /* FIRBundleUtil.h in Headers */,
-				12C96D17986707E62FAF996A4D0CEDFB /* FIRComponent.h in Headers */,
-				2F276C0D960B3B8E9400C57BB8AFB38E /* FIRComponentContainer.h in Headers */,
-				8BD323E59B1AB7DFE90B1970498C9C68 /* FIRComponentContainerInternal.h in Headers */,
-				1BEE3835B5C0B40ECF96717D78831CAA /* FIRComponentType.h in Headers */,
-				2DF6F4D22927E052EA0D93CFE3041CDA /* FIRConfiguration.h in Headers */,
-				B83DBD2825B77A612C43A03888C0AA9F /* FIRConfigurationInternal.h in Headers */,
-				45275F80A7CC6CA6D0F67D54B067D56C /* FIRDependency.h in Headers */,
-				BC35DA726714FCA215377FCB392AF419 /* FirebaseCore.h in Headers */,
-				951D561BFC851F6BF20978C3036EEC5F /* FirebaseCore-umbrella.h in Headers */,
-				7DDED08F3C8C3E3082FE7803ED540B71 /* FirebaseCoreInternal.h in Headers */,
-				88FB34E561811B85A48D8E25030C446C /* FIRFirebaseUserAgent.h in Headers */,
-				406ADBD3E5548603AA4F0ECE90DC5D3F /* FIRHeartbeatLogger.h in Headers */,
-				17D46E972785C9CCAF87F839DEED065E /* FIRLibrary.h in Headers */,
-				7BDCDB608B258F64253BA1BA1BCA29CB /* FIRLogger.h in Headers */,
-				C39B4B20BB4253744636C2207E76787A /* FIRLoggerLevel.h in Headers */,
-				B58A1DABB58F34ED69222B1DC2D5C4FF /* FIROptions.h in Headers */,
-				652F467A98D4692DE45AC3E49A33F02B /* FIROptionsInternal.h in Headers */,
-				E9BB3E3AB71AE6B14E125449DCCAE2DF /* FIRVersion.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5754,59 +5651,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDEF76D0FC8BC98441CF5903707EA448 /* ar.lproj in Resources */,
-				1EB3A75B5FD346EF4AF000B111970DE9 /* ca.lproj in Resources */,
-				F6908AF45DDB728E074ABA814B545D16 /* cs.lproj in Resources */,
-				EFA6211E2008CD97EFED93394AE3927F /* da.lproj in Resources */,
-				333443B027370F0D6E46CCC32E5C9E08 /* de.lproj in Resources */,
-				28DAD3610F497D53C1E50F27CCFB1EE4 /* el.lproj in Resources */,
-				900DB4987A05FD09932F66655173CC18 /* en.lproj in Resources */,
-				C55E8FFD2ADA378E71C21BE983B7717F /* en_GB.lproj in Resources */,
-				734D991D819DA8DCFD2AA72B7EF7A498 /* es.lproj in Resources */,
-				380D2FEDF9377FFAAA567450E24D4D5D /* es_MX.lproj in Resources */,
-				FF032D149E42C2AFCC1864CE94CB9E48 /* fi.lproj in Resources */,
-				B058BCBCBA20545DBA3167C29F090803 /* fr.lproj in Resources */,
-				2AC7AD763A4F6528BA52AB83040A95D4 /* fr_CA.lproj in Resources */,
-				5F4B544EA8AEA8435E14FA1FE7C042A9 /* google.png in Resources */,
-				5327F0081E9CC13ADBCDAA25C8F92102 /* google@2x.png in Resources */,
-				61C4FB6DD1907D09F7E711D1B3C928BE /* google@3x.png in Resources */,
-				D4E5ECF70DE4144870E500A240192D3E /* he.lproj in Resources */,
-				641932A459A9056E978B525904ABBF68 /* hi.lproj in Resources */,
-				1C34F63CD9207E18E3AAC4A6E8BFE964 /* hr.lproj in Resources */,
-				C5C45DEA469F2C2A2D29D9DE18398735 /* hu.lproj in Resources */,
-				E11412DA2C4342948B04A305F6F48D1C /* id.lproj in Resources */,
-				EAEDBA4BEC3583B812290C14A9FD0E76 /* it.lproj in Resources */,
-				081873B65AFF5002FE7FEACCE4D7263D /* ja.lproj in Resources */,
-				0255912CCC54F963E912AC0716E26DCF /* ko.lproj in Resources */,
-				BC9CEB1837006ECA4464A12C44C0603B /* ms.lproj in Resources */,
-				918C6EAAF3010E91102688E90BE70164 /* nb.lproj in Resources */,
-				E09A921FFEDD143791BF8169C6A5A355 /* nl.lproj in Resources */,
-				5627CAD30BC4239E4AB13C08400E92C8 /* pl.lproj in Resources */,
-				EC2736282DD782BA6CBF2B7ABE4E28BC /* pt.lproj in Resources */,
-				FFADC6715D8E8D4CF5B979A340616BE0 /* pt_BR.lproj in Resources */,
-				1E2DBA2144C9CC2B13C9DF9136BF1158 /* pt_PT.lproj in Resources */,
-				4008C715B5E40D750A20AFEC20B78C9B /* ro.lproj in Resources */,
-				2DE1E28F16E977C4BD8D7EB4552D10BD /* Roboto-Bold.ttf in Resources */,
-				C72AFD28A22E59A6A360471EF1AFB6A6 /* ru.lproj in Resources */,
-				BEC9DA7F6B0B9613626C4383FA7A4F5A /* sk.lproj in Resources */,
-				71B3784DB7562A3DBCD80948FD1A414D /* sv.lproj in Resources */,
-				6D1496BEF521CF22222221E9461D3DEB /* th.lproj in Resources */,
-				EA31058CF9B9358C039D6E8F06D23DF1 /* tr.lproj in Resources */,
-				8C4F819832CA1C0FCB7DF5353A58A508 /* uk.lproj in Resources */,
-				D2D043BA13FA9A1C7C8188B31A1329B5 /* vi.lproj in Resources */,
-				652C8B4862F26C02FD5049CCCCF34154 /* zh_CN.lproj in Resources */,
-				459E98A41E3CBA91CE83537B71E903B3 /* zh_TW.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0E7A7C5337CF4F559E1ECC0615F2809C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2094655D776BB358CB1C1565F9148951 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5818,13 +5666,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C80E6A729D4A289850B7EFF27521998D /* GoogleSignIn-GoogleSignIn in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2C6365749C833D897B21A825B9897509 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6707,12 +6548,6 @@
 		};
 		5FC12F8882B51BB48E12C19C27C59797 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = PromisesObjC;
-			target = 2BBF7206D7FAC92C82A042A99C4A98F8 /* PromisesObjC */;
-			targetProxy = 210502AB9C3358B8B360824372923215 /* PBXContainerItemProxy */;
-		};
-		2EBA4F5C3AB0506F39FFBA7DA0178D2D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
 			name = GoogleUtilities;
 			target = 8D7F5D5DD528D21A72DC87ADA5B12E2D /* GoogleUtilities */;
 			targetProxy = 0B6BA0508B4F3D5E43A4D1F5C77EE6BB /* PBXContainerItemProxy */;
@@ -7101,15 +6936,15 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FirebaseCoreInternal/FirebaseCoreInternal-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FirebaseCoreInternal/FirebaseCoreInternal-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/FirebaseSharedSwift/FirebaseSharedSwift.modulemap";
-				PRODUCT_MODULE_NAME = FirebaseSharedSwift;
-				PRODUCT_NAME = FirebaseSharedSwift;
+				MODULEMAP_FILE = "Target Support Files/FirebaseCoreInternal/FirebaseCoreInternal.modulemap";
+				PRODUCT_MODULE_NAME = FirebaseCoreInternal;
+				PRODUCT_NAME = FirebaseCoreInternal;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -7134,7 +6969,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/FirebaseDatabaseSwift/FirebaseDatabaseSwift-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/FirebaseAuth/FirebaseAuth-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -7142,46 +6977,13 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/FirebaseDatabaseSwift/FirebaseDatabaseSwift.modulemap";
-				PRODUCT_MODULE_NAME = FirebaseDatabaseSwift;
-				PRODUCT_NAME = FirebaseDatabaseSwift;
+				MODULEMAP_FILE = "Target Support Files/FirebaseAuth/FirebaseAuth.modulemap";
+				PRODUCT_MODULE_NAME = FirebaseAuth;
+				PRODUCT_NAME = FirebaseAuth;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.3;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		269D80EF9A7E3015ED4B576A8B43EA4F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0AC778D28784548E233067498ECD7BC /* GoogleUtilities.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/GoogleUtilities/GoogleUtilities-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/GoogleUtilities/GoogleUtilities.modulemap";
-				PRODUCT_MODULE_NAME = GoogleUtilities;
-				PRODUCT_NAME = GoogleUtilities;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -7542,11 +7344,10 @@
 			};
 			name = Debug;
 		};
-		7198B95E7CAF5F97AEB32526B29F970D /* Release */ = {
+		859E8832FC0E6D15F8B017733E248186 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7871E570140520BB652D1FAE85417DA3 /* AppAuth.release.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -7555,7 +7356,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/FirebaseDatabase/FirebaseDatabase-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/AppAuth/AppAuth-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AppAuth/AppAuth-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -7563,13 +7365,13 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/FirebaseDatabase/FirebaseDatabase.modulemap";
-				PRODUCT_MODULE_NAME = FirebaseDatabase;
-				PRODUCT_NAME = FirebaseDatabase;
+				MODULEMAP_FILE = "Target Support Files/AppAuth/AppAuth.modulemap";
+				PRODUCT_MODULE_NAME = AppAuth;
+				PRODUCT_NAME = AppAuth;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -7581,6 +7383,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA44E98C06D927F93E65F5850AD81C77 /* leveldb-library.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -7635,41 +7438,6 @@
 				MODULEMAP_FILE = "Target Support Files/FirebaseSharedSwift/FirebaseSharedSwift.modulemap";
 				PRODUCT_MODULE_NAME = FirebaseSharedSwift;
 				PRODUCT_NAME = FirebaseSharedSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7A74D208576B1950CD95270B2DF9FC75 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E842B8E88860816DEE912214BB6CFC46 /* FirebaseDatabase.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/FirebaseDatabase/FirebaseDatabase-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/FirebaseDatabase/FirebaseDatabase.modulemap";
-				PRODUCT_MODULE_NAME = FirebaseDatabase;
-				PRODUCT_NAME = FirebaseDatabase;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -7748,39 +7516,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		8C20B4DC49AAE80A57103552AB4053E4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5E5AA4716CDAFE05249AF33777CAF93 /* GoogleSignIn.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/GoogleSignIn/GoogleSignIn-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/GoogleSignIn/GoogleSignIn.modulemap";
-				PRODUCT_MODULE_NAME = GoogleSignIn;
-				PRODUCT_NAME = GoogleSignIn;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		92AB2C859DA4E386B84C80A5A9D24025 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -7931,7 +7666,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -7986,8 +7721,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FirebaseCoreInternal/FirebaseCoreInternal-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FirebaseCoreInternal/FirebaseCoreInternal-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/FirebaseCore/FirebaseCore-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -7995,9 +7729,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/FirebaseCoreInternal/FirebaseCoreInternal.modulemap";
-				PRODUCT_MODULE_NAME = FirebaseCoreInternal;
-				PRODUCT_NAME = FirebaseCoreInternal;
+				MODULEMAP_FILE = "Target Support Files/FirebaseCore/FirebaseCore.modulemap";
+				PRODUCT_MODULE_NAME = FirebaseCore;
+				PRODUCT_NAME = FirebaseCore;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -8040,42 +7774,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
-		};
-		C05B6B647BAC523923A5A542FD9E48DD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D19C5F7ED06BCD03F62F26163D8791E /* FirebaseAppCheckInterop.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FirebaseAppCheckInterop/FirebaseAppCheckInterop-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FirebaseAppCheckInterop/FirebaseAppCheckInterop-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap";
-				PRODUCT_MODULE_NAME = FirebaseAppCheckInterop;
-				PRODUCT_NAME = FirebaseAppCheckInterop;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
+			name = Release;
 		};
 		C070D2A4DDE3359F0308A2B616CD060B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -8154,7 +7853,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -8226,7 +7925,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 5.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -8269,10 +7968,11 @@
 			};
 			name = Debug;
 		};
-		DB9CAFC27F6824D854A8A6E3CAD1D6C9 /* Debug */ = {
+		D341702FF7699E182D2A8EA96C9EBD7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4247E0B341B913031F66210854EBD6C5 /* GoogleSignInSwift.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -8281,27 +7981,28 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/AppAuth/AppAuth-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AppAuth/AppAuth-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/GoogleSignInSwift/GoogleSignInSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GoogleSignInSwift/GoogleSignInSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/AppAuth/AppAuth.modulemap";
-				PRODUCT_MODULE_NAME = AppAuth;
-				PRODUCT_NAME = AppAuth;
+				MODULEMAP_FILE = "Target Support Files/GoogleSignInSwift/GoogleSignInSwift.modulemap";
+				PRODUCT_MODULE_NAME = GoogleSignInSwift;
+				PRODUCT_NAME = GoogleSignInSwift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		D4321EED23F6FBABAC29E85B9AA80DD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -8375,7 +8076,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D13100862C660E9B5D9F045796C0974E /* AppAuth.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -8384,7 +8084,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/FirebaseCore/FirebaseCore-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/AppAuth/AppAuth-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AppAuth/AppAuth-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -8392,13 +8093,13 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/FirebaseAuth/FirebaseAuth.modulemap";
-				PRODUCT_MODULE_NAME = FirebaseAuth;
-				PRODUCT_NAME = FirebaseAuth;
+				MODULEMAP_FILE = "Target Support Files/AppAuth/AppAuth.modulemap";
+				PRODUCT_MODULE_NAME = AppAuth;
+				PRODUCT_NAME = AppAuth;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -8729,8 +8430,8 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				81871643FA98DD9DCBD8B038074A98C5 /* Debug */,
-				74CC91F5279B99DE18F7FA3D7F034933 /* Release */,
+				446BA1B9A1F1F2F95D04E5F82EB1B0F4 /* Debug */,
+				5D47E2EFAC6FAC81A782D9BFD8736F53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

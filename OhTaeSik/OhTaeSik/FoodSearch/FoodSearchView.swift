@@ -72,16 +72,59 @@ struct Food: Identifiable, Codable{
 }
 
 struct FoodSearchView: View {
+    
     @StateObject private var foodData = FoodData()
     @State private var searchText = ""
     @State private var showingAlert = false
     @State private var selectedFood: Food? = nil // 선택한 음식 저장 변수
+    @State private var newCalorie = 0.0
+    @State private var mealsTotalCalorie = 0.0
+    @State private var specificValue: String = "" // 특정 값 저장 변수
+
+    @EnvironmentObject var dataModel: DataModel
 
     @Binding var foods: [Food] // 배열로 변경된 바인딩
-    @Binding var meals: String
     let database = Database.database().reference()
-
+    
+    private func fetchMealTotalCalorieFromFirebase(foodCalorie: Double) {
+        
+        let database = Database.database()
+                let morningRef = database.reference().child("foods/아침")
+                
+                // 현재 식사 총 칼로리 가져오기
+        morningRef.child("식사_총_칼로리").observeSingleEvent(of: .value) { (snapshot) in
+            if var totalCalories = snapshot.value as? Double {
+                print("현재 식사 총 칼로리: \(totalCalories)")
+                
+                // 새로운 칼로리 값 계산
+                let newCalories = totalCalories // 예시로 100.0을 더해줌
+                
+                // 파이어베이스에 새로운 칼로리 값 업데이트
+                morningRef.child("식사_총_칼로리").setValue(newCalories) { (error, ref) in
+                    if let error = error {
+                        print("데이터 업데이트 실패: \(error)")
+                    } else {
+                        print("식사 총 칼로리 업데이트 성공")
+                    }
+                }
+            } else {
+                print("식사 총 칼로리 데이터를 가져오지 못했습니다.")
+            }
+        }
+        
+//        ref.observeSingleEvent(of: .value) { snapshot in
+//            if let valueString = snapshot.value as? String,
+//               let value = Double(valueString) {
+//                DispatchQueue.main.async { // 메인 스레드에서 업데이트
+//                    self.mealsTotalCalorie += value // self를 사용해서 변수를 업데이트
+//                    print("Fetched mealsTotalCalorie: \(self.mealsTotalCalorie)")
+//                }
+//            }
+//        }
+    }
+    
     var body: some View {
+    
         NavigationView {
             VStack {
                 FoodSearchBar(text: $searchText)
@@ -96,7 +139,8 @@ struct FoodSearchView: View {
                     }, id: \.id) { food in
                         HStack {
                             VStack {
-                                Text(food.id.components(separatedBy: "_")[1])
+//                                Text(food.id.components(separatedBy: "_")[1])
+                                Text(food.id)
                                     .font(.system(size: 15, weight:.bold))
                                     .padding(.horizontal)
                                 Text("\(food.servingSize)")
@@ -107,6 +151,7 @@ struct FoodSearchView: View {
                             Spacer()
                             Button {
                                 selectedFood = food // 선택한 음식을 저장합니다.
+                                
                             } label: {
                                 Image(systemName: "plus.circle.fill")
                                     .foregroundColor(.blue)
@@ -116,16 +161,23 @@ struct FoodSearchView: View {
                                 Alert(title: Text("영양성분"),
                                       message: Text("단백질(g): \(food.protein)\n지방(g): \(food.fat)\n탄수화물(g): \(food.carbohydrate)"),
                                       primaryButton: .default(Text("추가")) {
-                                          // 선택한 음식을 배열에 추가합니다.
-                                          foods.append(food)
-                                    database.child("foods").child(meals).setValue(food.toDictionary())
-                                      },
+                                    // 선택한 음식을 배열에 추가합니다.
+                                    foods.append(food)
+                                    fetchMealTotalCalorieFromFirebase(foodCalorie: Double(food.calorie) ?? 0.0)
+                                    //                                          dataModel.totalCalorie += Double(food.calorie) ?? 0
+                                    
+                                    print("fetch하고나서: \(self.mealsTotalCalorie)")
+                                    self.mealsTotalCalorie += Double(food.calorie) ?? 0
+                                    print(self.mealsTotalCalorie)
+                                    print(Array(food.id))
+//                                    database.child("foods").child(dataModel.meals).child(food.id).setValue(food.toDictionary())
+                                    database.child("foods").child(dataModel.meals).child("식사_총_칼로리").setValue(self.mealsTotalCalorie)
+                                    database.child("foods").child("총_칼로리").setValue(dataModel.totalCalorie) // 경로 수정
+                                },
                                       secondaryButton: .cancel(Text("취소")))
-//                                .childByAutoId()
                             }
                         }
                     }
-
                 }
                 .listStyle(PlainListStyle())
                 .onTapGesture {
@@ -140,6 +192,7 @@ struct FoodSearchView: View {
         }
     }
 }
+
 
 //struct SearchView_Previews: PreviewProvider {
 //    static var previews: some View {

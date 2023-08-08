@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct User : Codable, Identifiable, Hashable {
+struct User: Codable, Identifiable {
     var id: String
     var name: String
     var weight: String
@@ -15,5 +15,16 @@ struct User : Codable, Identifiable, Hashable {
     var birth: String
     var gender: Int
     var calorie: Double
-    
+//    var breakfast: [food]
+//    var lunch: [food]
+//    var dinner: [food]
+//    var dessert: [food]
+}
+
+struct food {
+    var foodName: String
+    var foodCalorie: String
+    var food탄수: String
+    var food단백: String
+    var food지방: String
 }

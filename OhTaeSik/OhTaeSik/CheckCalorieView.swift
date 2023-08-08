@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct CheckCalorieView: View {
-    var body: some View {
+//    @State private var meals: String = ""
+    @State private var foods: [Food] = [] // 음식들을 배열로 관리합니다
+    @EnvironmentObject var dataModel: DataModel
 
+    var body: some View {
         NavigationView {
             VStack {
                 NavigationLink {
@@ -33,6 +36,9 @@ struct CheckCalorieView: View {
                             Text("0 / 1161kcal")
                         }
                     }
+                    .onTapGesture {
+                        dataModel.meals = "아침"
+                    }
                     NavigationLink {
                         DietView()
                     } label: {
@@ -44,6 +50,9 @@ struct CheckCalorieView: View {
                             Text("점심")
                             Text("0 / 1161kcal")
                         }
+                    }
+                    .onTapGesture {
+                        dataModel.meals = "점심"
                     }
                     NavigationLink {
                         DietView()
@@ -59,6 +68,9 @@ struct CheckCalorieView: View {
                             }
                         }
                     }
+                    .onTapGesture {
+                        dataModel.meals = "저녁"
+                    }
                     NavigationLink {
                         DietView()
                     } label: {
@@ -70,6 +82,9 @@ struct CheckCalorieView: View {
                             Text("간식")
                             Text("0 / 1161kcal")
                         }
+                    }
+                    .onTapGesture {
+                        dataModel.meals = "간식"
                     }
                 }
                 Spacer()
