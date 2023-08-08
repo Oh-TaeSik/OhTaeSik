@@ -1,17 +1,16 @@
 //
 //  CheckCalorieView.swift
-//  OhTaeSik
+//  Test03
 //
-//  Created by 영서 on 2023/07/26.
+//  Created by 이승진 on 2023/07/29.
 //
 
 import SwiftUI
 
 struct CheckCalorieView: View {
-//    @State private var meals: String = ""
     @State private var foods: [Food] = [] // 음식들을 배열로 관리합니다
     @EnvironmentObject var dataModel: DataModel
-
+    @State var tag:Int? = nil
     var body: some View {
         NavigationView {
             VStack {
@@ -22,82 +21,131 @@ struct CheckCalorieView: View {
                         .navigationTitle("오태식")
                 }
                 Spacer()
-                List() {
-                    NavigationLink {
-                        DietView()
-                    } label: {
-                        Image(systemName: "hourglass.bottomhalf.filled")
-                            .resizable()
-                            .foregroundStyle(.brown, .brown, .white)
-                            .background(.gray)
-                            .frame(width: 40)
-                        HStack {
-                            Text("아침")
-                            Text("0 / 1161kcal")
+                    .frame(height: 60)
+                VStack {
+                    HStack {
+                        NavigationLink {
+                            DietView()
+                                .navigationBarTitle("아침", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "hourglass.bottomhalf.filled")
+                                .resizable()
+                                .foregroundStyle(.brown, .brown, .white)
+                                .background(.gray)
+                                .frame(width: 40, height: 40)
+                            HStack {
+                                Text("아침")
+                                Text("0 / 1310 kcal")
+                            }
+                            .foregroundColor(.black)
+                        }
+                        Spacer()
+                            .frame(width: 70)
+                        NavigationLink {
+                            FoodSearchView(foods: $foods)
+                                .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
                         }
                     }
-                    .onTapGesture {
-                        dataModel.meals = "아침"
-                    }
-                    NavigationLink {
-                        DietView()
-                    } label: {
-                        Image(systemName: "cup.and.saucer.fill")
-                            .resizable()
-                            .foregroundStyle(.brown, .brown, .white)
-                            .frame(width: 40)
-                        HStack {
-                            Text("점심")
-                            Text("0 / 1161kcal")
+                    Divider()
+                        .frame(width: 300, height: 10 )
+                    
+                    HStack {
+                        NavigationLink {
+                            DietView()
+                                .navigationBarTitle("점심", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "cup.and.saucer.fill")
+                                .resizable()
+                                .foregroundStyle(.brown, .brown, .white)
+                                .frame(width: 40, height: 40)
+                            HStack {
+                                Text("점심")
+                                Text("0 / 1310 kcal")
+                            }
+                            .foregroundColor(.black)
+                            
+                        }
+                        Spacer()
+                            .frame(width: 70)
+                        NavigationLink {
+                            FoodSearchView(foods: $foods)
+                                .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
                         }
                     }
-                    .onTapGesture {
-                        dataModel.meals = "점심"
-                    }
-                    NavigationLink {
-                        DietView()
-                    } label: {
-                        HStack {
+                    Divider()
+                        .frame(width: 300, height: 10)
+                    
+                    HStack {
+                        NavigationLink {
+                            DietView()
+                                .navigationBarTitle("저넉", displayMode: .inline)
+                        } label: {
                             Image(systemName: "fork.knife.circle")
                                 .resizable()
                                 .foregroundStyle(.brown, .brown, .white)
-                                .frame(width: 40)
+                                .frame(width: 40, height: 40)
                             HStack {
                                 Text("저녁")
-                                Text("0 / 1161kcal")
+                                Text("0 / 1310 kcal")
                             }
+                            .foregroundColor(.black)
+                            
+                        }
+                        Spacer()
+                            .frame(width: 70)
+                        NavigationLink {
+                            FoodSearchView(foods: $foods)
+                                .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
                         }
                     }
-                    .onTapGesture {
-                        dataModel.meals = "저녁"
-                    }
-                    NavigationLink {
-                        DietView()
-                    } label: {
-                        Image(systemName: "birthday.cake")
-                            .resizable()
-                            .foregroundStyle(.brown, .brown, .white)
-                            .frame(width: 40)
-                        HStack {
-                            Text("간식")
-                            Text("0 / 1161kcal")
+                    Divider()
+                        .frame(width: 300, height: 10)
+                    
+                    HStack {
+                        NavigationLink {
+                            DietView()
+                                .navigationBarTitle("간식", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "birthday.cake")
+                                .resizable()
+                                .foregroundStyle(.brown, .brown, .white)
+                                .frame(width: 40, height: 40)
+                            HStack {
+                                Text("간식")
+                                Text("0 / 1310 kcal")
+                            }
+                            .foregroundColor(.black)
+                            
+                        }
+                        Spacer()
+                            .frame(width: 70)
+                        NavigationLink {
+                            FoodSearchView(foods: $foods)
+                                .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
                         }
                     }
-                    .onTapGesture {
-                        dataModel.meals = "간식"
-                    }
+                    
+                    Divider()
+                        .frame(width: 300, height: 10)
+                    
+                    
                 }
-                Spacer()
+                .padding()
+                .overlay (
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(lineWidth: 1)
+                )
             }
         }
         .background(.black)
-        .navigationBarBackButtonHidden()
-    }
-}
-
-struct CheckCalorieView_Previews: PreviewProvider {
-    static var previews: some View {
-        CheckCalorieView()
     }
 }
 
@@ -150,6 +198,7 @@ struct SummaryView: View {
         .overlay (
             RoundedRectangle(cornerRadius: 20)
                 .stroke(lineWidth: 1)
+                .foregroundColor(.black)
         )
     }
 }
