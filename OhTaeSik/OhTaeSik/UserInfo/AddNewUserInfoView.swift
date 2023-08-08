@@ -18,7 +18,6 @@ struct AddNewUserInfoView: View {
     @State var selected = 0
     
     var body: some View {
-        
         Text("어이 오태식이\n신체 정보 입력은 필수!")
             .multilineTextAlignment(.center)
             .font(.system(size: 25, weight: .semibold))
@@ -55,7 +54,6 @@ struct AddNewUserInfoView: View {
                 .frame(width: 300)
                 .padding(5)
         }
-        
         ZStack{
             NavigationLink(destination: AppTabBarView(signInData: $signInData, userData: .constant(User(id: "", name: signInData.name, weight: weight, height: height, birth: birth, gender: selected, calorie: 0.0))) , tag: 1, selection: self.$tag ) {
                 EmptyView()
