@@ -11,6 +11,8 @@ struct CheckCalorieView: View {
     @State private var foods: [Food] = [] // 음식들을 배열로 관리합니다
     @EnvironmentObject var dataModel: DataModel
     @State var tag:Int? = nil
+    let foodSettings = FoodSettings()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -44,6 +46,8 @@ struct CheckCalorieView: View {
                         NavigationLink {
                             FoodSearchView(foods: $foods)
                                 .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                                .environmentObject(DataModel())
+                                .environmentObject(foodSettings)
                         } label: {
                             Image(systemName: "plus.circle.fill")
                         }
@@ -72,6 +76,7 @@ struct CheckCalorieView: View {
                         NavigationLink {
                             FoodSearchView(foods: $foods)
                                 .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                                .environmentObject(DataModel())
                         } label: {
                             Image(systemName: "plus.circle.fill")
                         }
@@ -100,6 +105,7 @@ struct CheckCalorieView: View {
                         NavigationLink {
                             FoodSearchView(foods: $foods)
                                 .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                                .environmentObject(DataModel())
                         } label: {
                             Image(systemName: "plus.circle.fill")
                         }
@@ -128,6 +134,7 @@ struct CheckCalorieView: View {
                         NavigationLink {
                             FoodSearchView(foods: $foods)
                                 .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                                .environmentObject(DataModel())
                         } label: {
                             Image(systemName: "plus.circle.fill")
                         }
@@ -135,7 +142,6 @@ struct CheckCalorieView: View {
                     
                     Divider()
                         .frame(width: 300, height: 10)
-                    
                     
                 }
                 .padding()
