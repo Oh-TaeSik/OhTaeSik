@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CheckCalorieView: View {
+    @State private var foods: [Food] = [] // 음식들을 배열로 관리합니다
+    @EnvironmentObject var dataModel: DataModel
     @State var tag:Int? = nil
     var body: some View {
         NavigationView {
@@ -20,201 +22,130 @@ struct CheckCalorieView: View {
                 }
                 Spacer()
                     .frame(height: 60)
-//                List() {
-//                    HStack {
-//                        NavigationLink {
-//                            DietView()
-//                                .navigationBarTitle("아침", displayMode: .inline)
-//                        } label: {
-//                            Image(systemName: "hourglass.bottomhalf.filled")
-//                                .resizable()
-//                                .foregroundStyle(.brown, .brown, .white)
-//                                .background(.gray)
-//                                .frame(width: 40)
-//                            HStack {
-//                                Text("아침")
-//                                Text("0 / 1161kcal")
-//                            }
-//                        }
-//                    .navigationBarBackButtonHidden()
-//
-//                    }
-//                    NavigationLink {
-//                        FoodSearchView()
-//                            .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
-//                    } label: {
-//                        Image(systemName: "cup.and.saucer.fill")
-//                            .resizable()
-//                            .foregroundStyle(.brown, .brown, .white)
-//                            .frame(width: 40)
-//                        HStack {
-//                            Text("점심")
-//                            Text("0 / 1161kcal")
-//                        }
-//                    }
-//                    NavigationLink {
-//                        FoodSearchView()
-//                            .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
-//                    } label: {
-//                        HStack {
-//                            Image(systemName: "fork.knife.circle")
-//                                .resizable()
-//                                .foregroundStyle(.brown, .brown, .white)
-//                                .frame(width: 40)
-//                            HStack {
-//                                Text("저녁")
-//                                Text("0 / 1161kcal")
-//                            }
-//                        }
-//
-//                    }
-//                    NavigationLink {
-//                        FoodSearchView()
-//                            .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
-//
-//                    } label: {
-//                        Image(systemName: "birthday.cake")
-//                            .resizable()
-//                            .foregroundStyle(.brown, .brown, .white)
-//                            .frame(width: 40)
-//                        HStack {
-//                            Text("간식")
-//                            Text("0 / 1161kcal")
-//                        }
-//                    }
-//                }
-//                Spacer()
-
-                    VStack {
-                        HStack {
-                            NavigationLink {
-                                FoodSearchView()
-                                    .navigationBarTitle("아침", displayMode: .inline)
-                            } label: {
-                                Image(systemName: "hourglass.bottomhalf.filled")
-                                    .resizable()
-                                    .foregroundStyle(.brown, .brown, .white)
-                                    .background(.gray)
-                                    .frame(width: 40, height: 40)
-                                HStack {
-                                    Text("아침")
-                                    Text("0 / 1310 kcal")
-                                }
-                                .foregroundColor(.black)
+                VStack {
+                    HStack {
+                        NavigationLink {
+                            DietView()
+                                .navigationBarTitle("아침", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "hourglass.bottomhalf.filled")
+                                .resizable()
+                                .foregroundStyle(.brown, .brown, .white)
+                                .background(.gray)
+                                .frame(width: 40, height: 40)
+                            HStack {
+                                Text("아침")
+                                Text("0 / 1310 kcal")
                             }
-                            Spacer()
-                                .frame(width: 70)
-                            NavigationLink {
-                                FoodSearchView()
-                                    .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
-                            } label: {
-                                Image(systemName: "plus.circle.fill")
-                            }
+                            .foregroundColor(.black)
                         }
-                        Divider()
-                            .frame(width: 300, height: 10 )
-                            
-                        HStack {
-                            NavigationLink {
-                                FoodSearchView()
-                                    .navigationBarTitle("아침", displayMode: .inline)
-                            } label: {
-                                Image(systemName: "cup.and.saucer.fill")
-                                    .resizable()
-                                    .foregroundStyle(.brown, .brown, .white)
-                                    .frame(width: 40, height: 40)
-                                HStack {
-                                    Text("점심")
-                                    Text("0 / 1310 kcal")
-                                }
-                                .foregroundColor(.black)
-                                    
-                            }
-                            Spacer()
-                                .frame(width: 70)
-                            NavigationLink {
-                                FoodSearchView()
-                                    .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
-                            } label: {
-                                Image(systemName: "plus.circle.fill")
-                            }
+                        Spacer()
+                            .frame(width: 70)
+                        NavigationLink {
+                            FoodSearchView(foods: $foods)
+                                .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
                         }
-                        Divider()
-                            .frame(width: 300, height: 10)
-
-                        HStack {
-                            NavigationLink {
-                                FoodSearchView()
-                                    .navigationBarTitle("아침", displayMode: .inline)
-                            } label: {
-                                Image(systemName: "fork.knife.circle")
-                                    .resizable()
-                                    .foregroundStyle(.brown, .brown, .white)
-                                    .frame(width: 40, height: 40)
-                                HStack {
-                                    Text("저녁")
-                                    Text("0 / 1310 kcal")
-                                }
-                                .foregroundColor(.black)
-                                    
-                            }
-                            Spacer()
-                                .frame(width: 70)
-                            NavigationLink {
-                                FoodSearchView()
-                                    .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
-                            } label: {
-                                Image(systemName: "plus.circle.fill")
-                            }
-                        }
-                        Divider()
-                            .frame(width: 300, height: 10)
-
-                        HStack {
-                            NavigationLink {
-                                FoodSearchView()
-                                    .navigationBarTitle("아침", displayMode: .inline)
-                            } label: {
-                                Image(systemName: "birthday.cake")
-                                    .resizable()
-                                    .foregroundStyle(.brown, .brown, .white)
-                                    .frame(width: 40, height: 40)
-                                HStack {
-                                    Text("간식")
-                                    Text("0 / 1310 kcal")
-                                }
-                                .foregroundColor(.black)
-                                    
-                            }
-                            Spacer()
-                                .frame(width: 70)
-                            NavigationLink {
-                                FoodSearchView()
-                                    .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
-                            } label: {
-                                Image(systemName: "plus.circle.fill")
-                            }
-                        }
-                        
-                        Divider()
-                            .frame(width: 300, height: 10)
-                        
-
                     }
-                    .padding()
-                    .overlay (
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(lineWidth: 1)
-                    )
+                    Divider()
+                        .frame(width: 300, height: 10 )
+                    
+                    HStack {
+                        NavigationLink {
+                            DietView()
+                                .navigationBarTitle("점심", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "cup.and.saucer.fill")
+                                .resizable()
+                                .foregroundStyle(.brown, .brown, .white)
+                                .frame(width: 40, height: 40)
+                            HStack {
+                                Text("점심")
+                                Text("0 / 1310 kcal")
+                            }
+                            .foregroundColor(.black)
+                            
+                        }
+                        Spacer()
+                            .frame(width: 70)
+                        NavigationLink {
+                            FoodSearchView(foods: $foods)
+                                .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                        }
+                    }
+                    Divider()
+                        .frame(width: 300, height: 10)
+                    
+                    HStack {
+                        NavigationLink {
+                            DietView()
+                                .navigationBarTitle("저넉", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "fork.knife.circle")
+                                .resizable()
+                                .foregroundStyle(.brown, .brown, .white)
+                                .frame(width: 40, height: 40)
+                            HStack {
+                                Text("저녁")
+                                Text("0 / 1310 kcal")
+                            }
+                            .foregroundColor(.black)
+                            
+                        }
+                        Spacer()
+                            .frame(width: 70)
+                        NavigationLink {
+                            FoodSearchView(foods: $foods)
+                                .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                        }
+                    }
+                    Divider()
+                        .frame(width: 300, height: 10)
+                    
+                    HStack {
+                        NavigationLink {
+                            DietView()
+                                .navigationBarTitle("간식", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "birthday.cake")
+                                .resizable()
+                                .foregroundStyle(.brown, .brown, .white)
+                                .frame(width: 40, height: 40)
+                            HStack {
+                                Text("간식")
+                                Text("0 / 1310 kcal")
+                            }
+                            .foregroundColor(.black)
+                            
+                        }
+                        Spacer()
+                            .frame(width: 70)
+                        NavigationLink {
+                            FoodSearchView(foods: $foods)
+                                .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                        }
+                    }
+                    
+                    Divider()
+                        .frame(width: 300, height: 10)
+                    
+                    
                 }
+                .padding()
+                .overlay (
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(lineWidth: 1)
+                )
+            }
         }
         .background(.black)
-    }
-}
-
-struct CheckCalorieView_Previews: PreviewProvider {
-    static var previews: some View {
-        CheckCalorieView()
     }
 }
 

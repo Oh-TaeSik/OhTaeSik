@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		06327621FBFEF4BCE781DF50 /* Pods_OhTaeSik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5BC12B788C96ADAD4B413D /* Pods_OhTaeSik.framework */; };
 		3A272CA52A7103910026EB6E /* CheckCalorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A272CA42A7103910026EB6E /* CheckCalorieView.swift */; };
+		3AE5F1612A7CD9920049CFE5 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5F1602A7CD9920049CFE5 /* DietView.swift */; };
 		3AECD0E42A7216CB009707ED /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECD0E32A7216CB009707ED /* MyPageView.swift */; };
 		5C1AA87F2A78A6F100B34BA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AA87E2A78A6F100B34BA5 /* GoogleService-Info.plist */; };
 		5C1AA8822A78C00800B34BA5 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AA8812A78C00800B34BA5 /* PieChartView.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		0A5BC12B788C96ADAD4B413D /* Pods_OhTaeSik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OhTaeSik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A272CA42A7103910026EB6E /* CheckCalorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCalorieView.swift; sourceTree = "<group>"; };
+		3AE5F1602A7CD9920049CFE5 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DietView.swift; path = ../../../../../DietView.swift; sourceTree = "<group>"; };
 		3AECD0E32A7216CB009707ED /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		54E1B39B10C9471E0B2FBE42 /* Pods-OhTaeSik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhTaeSik.release.xcconfig"; path = "Target Support Files/Pods-OhTaeSik/Pods-OhTaeSik.release.xcconfig"; sourceTree = "<group>"; };
 		5C1AA87E2A78A6F100B34BA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			children = (
 				95F55DE42A70FA640048FD6B /* FoodSearchView.swift */,
 				95F55DE72A70FD190048FD6B /* FoodSearchBar.swift */,
+				3AE5F1602A7CD9920049CFE5 /* DietView.swift */,
 			);
 			path = FoodSearch;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				95F55DDC2A70F6E40048FD6B /* TabBarItemPreferenceKey.swift in Sources */,
 				95D89F082A7CCD7400B70D40 /* UserStore.swift in Sources */,
 				3A272CA52A7103910026EB6E /* CheckCalorieView.swift in Sources */,
+				3AE5F1612A7CD9920049CFE5 /* DietView.swift in Sources */,
 				5C1AA8842A78C03700B34BA5 /* PieChartRows.swift in Sources */,
 				95F55DE02A70F7010048FD6B /* InputInfoView.swift in Sources */,
 				95F55DC82A70F6A30048FD6B /* OhTaeSikApp.swift in Sources */,
@@ -471,7 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OhTaeSik/Preview Content\"";
-				DEVELOPMENT_TEAM = D8KHM6Q8SA;
+				DEVELOPMENT_TEAM = JB52G9P9Y2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OhTaeSik/Info.plist;
@@ -502,7 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OhTaeSik/Preview Content\"";
-				DEVELOPMENT_TEAM = D8KHM6Q8SA;
+				DEVELOPMENT_TEAM = JB52G9P9Y2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OhTaeSik/Info.plist;
