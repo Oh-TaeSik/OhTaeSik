@@ -9,44 +9,39 @@ import SwiftUI
 import GoogleSignIn
 import FirebaseCore
 
-//class AppDelegate: NSObject, UIApplicationDelegate {
-//  func application(_ application: UIApplication,
-//                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//    FirebaseApp.configure()
-//
-//    return true
-//  }
-//}
-
 class DataModel: ObservableObject {
     @Published var meals: String = ""
     @Published var totalCalorie: Double = 0
 }
 
+//, GIDSignInDelegate
+class AppDelegate: NSObject, UIApplicationDelegate{
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
+    }
+    
+}
+
 @main
-
-//class AppDelegate: NSObject, UIApplicationDelegate {
-//    func application(_ application: UIApplication,
-//                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//    FirebaseApp.configure()
-//
-//    return true
-//    }
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//        return GIDSignIn.sharedInstance.handle(url)
-//    }
-//}
-
 struct OhTaeSikApp: App {
     @ObservedObject var appState = AppState()
     @StateObject var dataModel = DataModel()
-
-    init() {
-        FirebaseApp.configure()
-    }
+    
+    //    init() {
+    //        FirebaseApp.configure()
+    //    }
+    
+    // AppDelegate를 사용하여 Firebase와 GoogleSignIn을 설정합니다.
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     // register app delegate for Firebase setup
-//    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    //    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
             GoogleSignInView(signInData: SignInData(url:nil, name:"", email:""))
@@ -55,7 +50,7 @@ struct OhTaeSikApp: App {
                 .id(appState.rootViewId)
                 .environmentObject(appState)
                 .environmentObject(dataModel)
-
+//            GoogleSignInView(signInData: <#T##SignInData#>)
         }
     }
 }

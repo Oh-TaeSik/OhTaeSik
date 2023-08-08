@@ -144,8 +144,11 @@ struct CheckCalorieView: View {
                         .stroke(lineWidth: 1)
                 )
             }
+            
+            .offset(y:-50)
         }
         .background(.black)
+        .navigationBarBackButtonHidden()
     }
 }
 
@@ -200,5 +203,11 @@ struct SummaryView: View {
                 .stroke(lineWidth: 1)
                 .foregroundColor(.black)
         )
+    }
+}
+
+struct Previews_CheckCalorieView_Previews: PreviewProvider {
+    static var previews: some View {
+        CheckCalorieView()
     }
 }
