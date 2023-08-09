@@ -28,7 +28,6 @@ class FoodData: ObservableObject {
                     foodArray.append(food)
                 }
             }
-
             self.foods = foodArray
         }
     }
@@ -40,10 +39,6 @@ struct Food: Identifiable, Codable{
     var fat: String
     var carbohydrate: String
     var calorie: String
-    var servingSize: String
-    var sodium: String
-    var sugars: String
-    var dietaryFiber: String
 
     init(id: String, data: [String: Any]) {
         self.id = id // 키 값이 식품명
@@ -51,10 +46,6 @@ struct Food: Identifiable, Codable{
         self.fat = data["지방(g)"] as? String ?? ""
         self.carbohydrate = data["탄수화물(g)"] as? String ?? ""
         self.calorie = data["에너지(kcal)"] as? String ?? ""
-        self.servingSize = data["영양성분함량기준량"] as? String ?? ""
-        self.sodium = data["나트륨(mg)"] as? String ?? ""
-        self.sugars = data["당류(g)"] as? String ?? ""
-        self.dietaryFiber = data["식이섬유(g)"] as? String ?? ""
     }
     func toDictionary() -> [String: Any] {
         return [
@@ -74,42 +65,30 @@ struct FoodSearchView: View {
     @State private var showingAlert = false
     @State private var selectedFood: Food? = nil // 선택한 음식 저장 변수
     @State private var mealsTotalCalorie = 0.0
-    @State private var specificValue: String = "" // 특정 값 저장 변수
+    
     @EnvironmentObject var foodSettings: FoodSettings
     @EnvironmentObject var dataModel: DataModel
-
+    
     @Binding var foods: [Food] // 배열로 변경된 바인딩
+    @Binding var mealsWhen: String // 아침, 점심 저녁
+    
     let database = Database.database().reference()
     
     private func fetchMealTotalCalorieFromFirebase(foodCalorie: Double) {
         
-        let database = Database.database()
-        let morningRef = database.reference().child("foods").child("아침")
-                    
+        let ref = database.child("foods").child(mealsWhen)
                 // 현재 식사 총 칼로리 가져오기
-        morningRef.child("식사_총_칼로리").observeSingleEvent(of: .value) { (snapshot) in
-            if let totalCalories = snapshot.value as? Double {
-                
-                let newCalories = foodSettings.foodDefaults.double(forKey: "TotalCalories")
-//                foodSettings.foodDefaults.set(newCalories + foodCalorie, forKey: "TotalCalories")
-                
-                morningRef.child("식사_총_칼로리").setValue(newCalories) { (error, ref) in
-                    if let error = error {
-                        print("데이터 업데이트 실패: \(error)")
-                    } else {
-                        print("식사 총 칼로리 업데이트 성공")
-                    }
-                }
+        ref.child("식사_총_칼로리").observeSingleEvent(of: .value) { (snapshot, arg) in
+            if let totalCalories = snapshot.value as? String {
+                database.child("foods").child("\(mealsWhen)").child("식사_총_칼로리").setValue(String(Double(totalCalories)! + foodCalorie))
             } else {
+                database.child("foods").child("\(mealsWhen)").child("식사_총_칼로리").setValue("\(foodCalorie)")
                 print("식사 총 칼로리 데이터를 가져오지 못했습니다.")
             }
         }
-        foodSettings.foodDefaults.removeObject(forKey: "TotalCalories")
-        foodSettings.foodDefaults.synchronize()
     }
     
     var body: some View {
-    
         NavigationView {
             VStack {
                 FoodSearchBar(text: $searchText)
@@ -127,7 +106,7 @@ struct FoodSearchView: View {
                                 Text(food.id)
                                     .font(.system(size: 15, weight:.bold))
                                     .padding(.horizontal)
-                                Text("\(food.servingSize)")
+                                Text("100g")
                                     .font(.system(size: 13))
                             }
                             Text("에너지(kcal): \(food.calorie)")
@@ -147,12 +126,9 @@ struct FoodSearchView: View {
                                       primaryButton: .default(Text("추가")) {
                                     foods.append(food)
                                     
-                                    
-                                    database.child("foods").child("아침").child(food.id).setValue(food.toDictionary())
-                                    database.child("foods").child("아침").child("식사_총_칼로리").setValue(food.calorie)
-                                    database.child("foods").child("총_칼로리").setValue(dataModel.totalCalorie) // 경로 수정
-                                    
                                     fetchMealTotalCalorieFromFirebase(foodCalorie: Double(food.calorie) ?? 0.0)
+                                    database.child("foods").child("\(mealsWhen)").child(food.id).setValue(food.toDictionary())
+                                    database.child("foods").child("총_칼로리").setValue(dataModel.totalCalorie) // 경로 수정
                                 },
                                       secondaryButton: .cancel(Text("취소")))
                             }

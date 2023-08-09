@@ -15,30 +15,30 @@ class DataModel: ObservableObject {
 }
 
 //, GIDSignInDelegate
-class AppDelegate: NSObject, UIApplicationDelegate{
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
-        return true
-    }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance.handle(url)
-    }
-    
-}
+//class AppDelegate: NSObject, UIApplicationDelegate{
+//    func application(_ application: UIApplication,
+//                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+//        FirebaseApp.configure()
+//        return true
+//    }
+//
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        return GIDSignIn.sharedInstance.handle(url)
+//    }
+//
+//}
 
 @main
 struct OhTaeSikApp: App {
     @ObservedObject var appState = AppState()
     @StateObject var dataModel = DataModel()
     
-    //    init() {
-    //        FirebaseApp.configure()
-    //    }
+    init() {
+        FirebaseApp.configure()
+    }
     
     // AppDelegate를 사용하여 Firebase와 GoogleSignIn을 설정합니다.
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+//    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     // register app delegate for Firebase setup
     //    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
