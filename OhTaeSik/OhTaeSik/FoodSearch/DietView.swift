@@ -8,10 +8,9 @@
 import SwiftUI
 import FirebaseDatabase
 struct DietView: View {
-    @State var users = ["Hohyeon", "Moon", "Jigom"]
 //    @State private var calorieTotal: Double = 0 // 칼로리 총량을 저장할 @State 변수 추가
     @State private var foods: [Food] = [] // 음식들을 배열로 관리합니다
-
+    
     @EnvironmentObject var dataModel: DataModel
     
     var body: some View {
@@ -33,15 +32,15 @@ struct DietView: View {
                 }
                 .padding()
             }
-            .navigationBarItems(
-                trailing:
-                    NavigationLink(
-                        destination: FoodSearchView(foods: $foods), // 배열을 바인딩으로 전달합니다
-                        label: {
-                            Image(systemName: "plus.circle.fill")
-                                .foregroundColor(.blue)
-                })
-            )
+//            .navigationBarItems(
+//                trailing:
+//                    NavigationLink(
+//                        destination: FoodSearchView(foods: $foods), // 배열을 바인딩으로 전달합니다
+//                        label: {
+//                            Image(systemName: "plus.circle.fill")
+//                                .foregroundColor(.blue)
+//                })
+//            )
         }
     }
     

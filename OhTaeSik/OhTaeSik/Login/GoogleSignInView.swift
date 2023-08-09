@@ -30,52 +30,52 @@ import Firebase
 //    }
 //}
 
-class Signin_withGoogle_VM: ObservableObject {
-    @Published var isLoginSuccessed = false
-
-    func signInWithGoogle() {
-        guard let clientID = FirebaseApp.app()?.options.clientID else {
-            fatalError("No client ID found in Firebase configuration")
-        }
-        let config = GIDConfiguration(clientID: clientID)
-        GIDSignIn.sharedInstance.configuration = config
-
-        //sign in method goes here
-        GIDSignIn.sharedInstance.signIn(
-            withPresenting: Application_utility.rootViewController) { user, error in
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                }
-                guard
-                    let user = user?.user,
-                    let idToken = user.idToken else {return}
-                
-                let accessToken = user.accessToken
-                
-                let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString,
-                                                               accessToken: accessToken.tokenString)
-                
-                Auth.auth().signIn(with: credential) { res, error in
-                    if let error = error {
-                        print(error.localizedDescription)
-                        return
-                    }
-                    guard let user = res?.user else {return}
-                    print(user)
-                }
-        }
-    }
-}
+//class Signin_withGoogle_VM: ObservableObject {
+//    @Published var isLoginSuccessed = false
+//
+//    func signInWithGoogle() {
+//        guard let clientID = FirebaseApp.app()?.options.clientID else {
+//            fatalError("No client ID found in Firebase configuration")
+//        }
+//        let config = GIDConfiguration(clientID: clientID)
+//        GIDSignIn.sharedInstance.configuration = config
+//
+//        //sign in method goes here
+//        GIDSignIn.sharedInstance.signIn(
+//            withPresenting: Application_utility.rootViewController) { user, error in
+//                if let error = error {
+//                    print(error.localizedDescription)
+//                    return
+//                }
+//                guard
+//                    let user = user?.user,
+//                    let idToken = user.idToken else {return}
+//
+//                let accessToken = user.accessToken
+//
+//                let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString,
+//                                                               accessToken: accessToken.tokenString)
+//
+//                Auth.auth().signIn(with: credential) { res, error in
+//                    if let error = error {
+//                        print(error.localizedDescription)
+//                        return
+//                    }
+//                    guard let user = res?.user else {return}
+//                    print(user)
+//                }
+//        }
+//    }
+//}
 struct GoogleSignInView: View {
     @State var isLogined = false
     @State var isAlert = false
     @State var signInData: SignInData
-    @StateObject private var vm = Signin_withGoogle_VM()
-    typealias UIViewControllerType = UIViewController
+//    @StateObject private var vm = Signin_withGoogle_VM()
+//    typealias UIViewControllerType = UIViewController
     
-    public init(isLogined: Bool = false, signInData: SignInData) {
-        _isLogined = State(initialValue: isLogined)
+        public init(isLogined: Bool = false, signInData: SignInData) {
+            _isLogined = State(initialValue: isLogined)
         _signInData = State(initialValue: signInData)
     }
     
@@ -83,8 +83,8 @@ struct GoogleSignInView: View {
         NavigationStack {
             ZStack {
                 Button {
-//                    googleLogin()
-                    vm.signInWithGoogle()
+                    googleLogin()
+//                    vm.signInWithGoogle()
                 } label: {
                     Text("구글 로그인")
                 }

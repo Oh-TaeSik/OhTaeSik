@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		06327621FBFEF4BCE781DF50 /* Pods_OhTaeSik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5BC12B788C96ADAD4B413D /* Pods_OhTaeSik.framework */; };
+		3A03C34B2A83BCC700C3CF1D /* ReadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A03C34A2A83BCC700C3CF1D /* ReadViewModel.swift */; };
 		3A272CA52A7103910026EB6E /* CheckCalorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A272CA42A7103910026EB6E /* CheckCalorieView.swift */; };
 		3A8BBDE32A82734600E4E836 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BBDE22A82734600E4E836 /* Application.swift */; };
-		3AE5F1612A7CD9920049CFE5 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5F1602A7CD9920049CFE5 /* DietView.swift */; };
 		3AECD0E42A7216CB009707ED /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECD0E32A7216CB009707ED /* MyPageView.swift */; };
 		5C1AA87F2A78A6F100B34BA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AA87E2A78A6F100B34BA5 /* GoogleService-Info.plist */; };
 		5C1AA8822A78C00800B34BA5 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AA8812A78C00800B34BA5 /* PieChartView.swift */; };
@@ -43,9 +43,9 @@
 
 /* Begin PBXFileReference section */
 		0A5BC12B788C96ADAD4B413D /* Pods_OhTaeSik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OhTaeSik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A03C34A2A83BCC700C3CF1D /* ReadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewModel.swift; sourceTree = "<group>"; };
 		3A272CA42A7103910026EB6E /* CheckCalorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCalorieView.swift; sourceTree = "<group>"; };
 		3A8BBDE22A82734600E4E836 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
-		3AE5F1602A7CD9920049CFE5 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DietView.swift; path = ../../../../../DietView.swift; sourceTree = "<group>"; };
 		3AECD0E32A7216CB009707ED /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		54E1B39B10C9471E0B2FBE42 /* Pods-OhTaeSik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhTaeSik.release.xcconfig"; path = "Target Support Files/Pods-OhTaeSik/Pods-OhTaeSik.release.xcconfig"; sourceTree = "<group>"; };
 		5C1AA87E2A78A6F100B34BA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -95,6 +95,7 @@
 		5C1AA8802A78BFE600B34BA5 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				95668DBB2A821BB400D7FFF3 /* SignInObservableObject.swift */,
 				5C1AA8812A78C00800B34BA5 /* PieChartView.swift */,
 				5C1AA8832A78C03700B34BA5 /* PieChartRows.swift */,
 				5C1AA8852A78C05400B34BA5 /* PieSliceView.swift */,
@@ -124,7 +125,6 @@
 			children = (
 				95869A222A735B6600F6BA3C /* GoogleSignInView.swift */,
 				951B6A642A7375AF00D7EDDC /* SignInData.swift */,
-				95668DBB2A821BB400D7FFF3 /* SignInObservableObject.swift */,
 				3A8BBDE22A82734600E4E836 /* Application.swift */,
 			);
 			path = Login;
@@ -172,6 +172,7 @@
 				95F55DC72A70F6A30048FD6B /* OhTaeSikApp.swift */,
 				95F55DC92A70F6A30048FD6B /* ContentView.swift */,
 				3A272CA42A7103910026EB6E /* CheckCalorieView.swift */,
+				3A03C34A2A83BCC700C3CF1D /* ReadViewModel.swift */,
 				95F55DCB2A70F6A40048FD6B /* Assets.xcassets */,
 				95F55DCD2A70F6A40048FD6B /* Preview Content */,
 				95F55DE22A70F9340048FD6B /* LaunchScreenView.swift */,
@@ -347,6 +348,7 @@
 				5C1AA8842A78C03700B34BA5 /* PieChartRows.swift in Sources */,
 				95F55DE02A70F7010048FD6B /* InputInfoView.swift in Sources */,
 				95F55DC82A70F6A30048FD6B /* OhTaeSikApp.swift in Sources */,
+				3A03C34B2A83BCC700C3CF1D /* ReadViewModel.swift in Sources */,
 				3AECD0E42A7216CB009707ED /* MyPageView.swift in Sources */,
 				5C1AA8822A78C00800B34BA5 /* PieChartView.swift in Sources */,
 				95668DBC2A821BB400D7FFF3 /* SignInObservableObject.swift in Sources */,
