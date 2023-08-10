@@ -5,10 +5,11 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct AddNewUserInfoView: View {
     @ObservedObject var userStore : UserStore
-    @Binding var signInData: SignInData
+    @State var name: String = ""
     @State var weight: String = ""
     @State var height: String = ""
     @State var birth: String = "2023.08.04"
@@ -16,6 +17,7 @@ struct AddNewUserInfoView: View {
     @State var tag:Int? = nil
     @State var calorie: Double = 0.0
     @State var selected = 0
+    let user = Auth.auth().currentUser
     
     var body: some View {
         Text("어이 오태식이\n신체 정보 입력은 필수!")
@@ -25,6 +27,14 @@ struct AddNewUserInfoView: View {
             .padding(50)
         
         VStack {
+            
+            TextField("이름", text: $name)
+                .padding()
+                .frame(width: 300)
+                .background(Color(uiColor: .secondarySystemBackground))
+                .cornerRadius(14)
+                .padding(10)
+            
             TextField("키", text: $height)
                 .padding()
                 .frame(width: 300)
@@ -55,12 +65,12 @@ struct AddNewUserInfoView: View {
                 .padding(5)
         }
         ZStack{
-            NavigationLink(destination: AppTabBarView(signInData: $signInData, userData: .constant(User(id: "", name: signInData.name, weight: weight, height: height, birth: birth, gender: selected, calorie: 0.0))) , tag: 1, selection: self.$tag ) {
+            NavigationLink(destination: AppTabBarView() , tag: 1, selection: self.$tag ) {
                 EmptyView()
             }
             
             Button( action : {
-                userStore.addNewUser(user: User(id: UUID().uuidString, name: signInData.name, weight: weight, height: height, birth: birth, gender: gender, calorie: calorie))
+                userStore.addNewUser(user: User(id: user!.uid, name: name, weight: weight, height: height, birth: birth, gender: gender, calorie: calorie))
                 self.tag = 1
             }) {
                 Text("시작하기")
