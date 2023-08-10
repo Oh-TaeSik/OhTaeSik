@@ -44,9 +44,9 @@ struct CheckCalorieView: View {
                             HStack {
                                 Text("아침")
                                 if viewModel.values[0] != nil {
-                                    Text("\(viewModel.values[0]!) / 잔여 칼로리")
+                                    Text("\(viewModel.values[0]!) kcal")
                                 } else {
-                                    Text("0 / 잔여 칼로리")
+                                    Text("0 kcal")
                                 }
                             }
                             .foregroundColor(.black)
@@ -63,6 +63,8 @@ struct CheckCalorieView: View {
                                 .environmentObject(foodSettings)
                         } label: {
                             Image(systemName: "plus.circle.fill")
+                                .foregroundColor(.black)
+
                         }
                     }
                     Divider()
@@ -79,9 +81,9 @@ struct CheckCalorieView: View {
                             HStack {
                                 Text("점심")
                                 if viewModel.values[1] != nil {
-                                    Text("\(viewModel.values[1]!) / 잔여 칼로리")
+                                    Text("\(viewModel.values[1]!) kcal")
                                 } else {
-                                    Text("0 / 잔여 칼로리")
+                                    Text("0 kcal")
                                 }
                             }
                             .foregroundColor(.black)
@@ -97,6 +99,7 @@ struct CheckCalorieView: View {
                                 .environmentObject(DataModel())
                         } label: {
                             Image(systemName: "plus.circle.fill")
+                                .foregroundColor(.black)
                         }
                     }
                     Divider()
@@ -113,9 +116,9 @@ struct CheckCalorieView: View {
                             HStack {
                                 Text("저녁")
                                 if viewModel.values[2] != nil {
-                                    Text("\(viewModel.values[2]!) / 잔여 칼로리")
+                                    Text("\(viewModel.values[2]!) kcal")
                                 } else {
-                                    Text("0 / 잔여 칼로리")
+                                    Text("0 kcal")
                                 }
                             }
                             .foregroundColor(.black)
@@ -131,6 +134,8 @@ struct CheckCalorieView: View {
                                 .environmentObject(DataModel())
                         } label: {
                             Image(systemName: "plus.circle.fill")
+                                .foregroundColor(.black)
+
                         }
                     }
                     Divider()
@@ -147,9 +152,9 @@ struct CheckCalorieView: View {
                             HStack {
                                 Text("간식")
                                 if viewModel.values[3] != nil {
-                                    Text("\(viewModel.values[3]!)kcal / 잔여 칼로리")
+                                    Text("\(viewModel.values[3]!) kcal")
                                 } else {
-                                    Text("0 / 잔여 칼로리")
+                                    Text("0 kcal")
                                 }
                             }
                             .foregroundColor(.black)
@@ -165,10 +170,10 @@ struct CheckCalorieView: View {
                                 .environmentObject(DataModel())
                         } label: {
                             Image(systemName: "plus.circle.fill")
+                                .foregroundColor(.black)
+
                         }
                     }
-                    Divider()
-                        .frame(width: 300, height: 10)
                 }
                 .padding()
                 .overlay (
@@ -191,48 +196,24 @@ struct SummaryView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                VStack {
-                    Text("섭취량")
+            HStack (spacing: 50){
+                VStack(spacing:5) {
+                    Text("섭취 칼로리")
                         .bold()
+                        .font(.system(size: 18))
                     if viewModel.totalCalorie != nil {
-                        Text(viewModel.totalCalorie!)
+                        Text("\(viewModel.totalCalorie!) kcal")
                     } else {
                         Text("0")
                     }
                 }
-                Spacer()
-                VStack {
+                VStack(spacing:5) {
                     Text("잔여 칼로리")
                         .bold()
+                        .font(.system(size: 18))
                     Text("3232kcal")
                 }
-                Spacer()
             }
-            .padding(.bottom)
-            
-//            HStack {
-//                Spacer()
-//                VStack {
-//                    Text("탄수화물")
-//                        .bold()
-//                    Text("232g")
-//                }
-//                Spacer()
-//                VStack {
-//                    Text("단백질")
-//                        .bold()
-//                    Text("120g")
-//                }
-//                Spacer()
-//                VStack {
-//                    Text("지방")
-//                        .bold()
-//                    Text("30g")
-//                }
-//                Spacer()
-//            }
         }
         .foregroundColor(Color.black)
         .padding()
