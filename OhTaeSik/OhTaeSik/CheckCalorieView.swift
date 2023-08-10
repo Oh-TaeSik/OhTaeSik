@@ -24,8 +24,11 @@ struct CheckCalorieView: View {
                 NavigationLink {
                     PieChartView(values: [1234, 543, 995], names: ["탄수화물", "단백질", "지방"], formatter: {value in String(format: "%.1f(kcal)", value)})
                 } label: {
-                    SummaryView()
+                    SummaryView(viewModel: viewModel)
                         .navigationTitle("오태식")
+                }
+                .onAppear() {
+                    viewModel.observeTotalCalorie()
                 }
                 Spacer()
                     .frame(height: 60)
@@ -45,7 +48,7 @@ struct CheckCalorieView: View {
                                 if viewModel.values[0] != nil {
                                     Text("\(viewModel.values[0]!) / 잔여 칼로리")
                                 } else {
-                                    Text("0")
+                                    Text("0 / 잔여 칼로리")
                                 }
                             }
                             .foregroundColor(.black)
@@ -149,7 +152,7 @@ struct CheckCalorieView: View {
                             HStack {
                                 Text("간식")
                                 if viewModel.values[3] != nil {
-                                    Text("\(viewModel.values[3]!) / 잔여 칼로리")
+                                    Text("\(viewModel.values[3]!)kcal / 잔여 칼로리")
                                 } else {
                                     Text("0 / 잔여 칼로리")
                                 }
@@ -189,6 +192,8 @@ struct CheckCalorieView: View {
 }
 
 struct SummaryView: View {
+    @ObservedObject var viewModel = ReadViewModel()
+
     var body: some View {
         VStack {
             HStack {
@@ -196,7 +201,11 @@ struct SummaryView: View {
                 VStack {
                     Text("섭취량")
                         .bold()
-                    Text("232kcal")
+                    if viewModel.totalCalorie != nil {
+                        Text(viewModel.totalCalorie!)
+                    } else {
+                        Text("0")
+                    }
                 }
                 Spacer()
                 VStack {
@@ -208,32 +217,32 @@ struct SummaryView: View {
             }
             .padding(.bottom)
             
-            HStack {
-                Spacer()
-                VStack {
-                    Text("탄수화물")
-                        .bold()
-                    Text("232g")
-                }
-                Spacer()
-                VStack {
-                    Text("단백질")
-                        .bold()
-                    Text("120g")
-                }
-                Spacer()
-                VStack {
-                    Text("지방")
-                        .bold()
-                    Text("30g")
-                }
-                Spacer()
-            }
+//            HStack {
+//                Spacer()
+//                VStack {
+//                    Text("탄수화물")
+//                        .bold()
+//                    Text("232g")
+//                }
+//                Spacer()
+//                VStack {
+//                    Text("단백질")
+//                        .bold()
+//                    Text("120g")
+//                }
+//                Spacer()
+//                VStack {
+//                    Text("지방")
+//                        .bold()
+//                    Text("30g")
+//                }
+//                Spacer()
+//            }
         }
         .foregroundColor(Color.black)
         .padding()
         .frame(width: UIScreen.main.bounds.width*0.90)
-        .frame(height: 150)
+        .frame(height: 100)
         .overlay (
             RoundedRectangle(cornerRadius: 20)
                 .stroke(lineWidth: 1)

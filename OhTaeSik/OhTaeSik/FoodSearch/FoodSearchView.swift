@@ -87,6 +87,42 @@ struct FoodSearchView: View {
             }
         }
     }
+    private func fetchTotalNutrientFromFirebase(carbohydrate: Double, protein: Double, fat: Double, calorie: Double) {
+        let ref = database.child("foods")
+                // 현재 식사 총 칼로리 가져오기
+        ref.child("총_탄수화물").observeSingleEvent(of: .value) { (snapshot, arg) in
+            if let totalCarbonhydrate = snapshot.value as? String {
+                database.child("foods").child("총_탄수화물").setValue(String(Double(totalCarbonhydrate)! + carbohydrate))
+            } else {
+                database.child("foods").child("총_탄수화물").setValue("\(carbohydrate)")
+                print("총 탄수화물 데이터를 가져오지 못했습니다.")
+            }
+        }
+        ref.child("총_단백질").observeSingleEvent(of: .value) { (snapshot, arg) in
+            if let totalProtein = snapshot.value as? String {
+                database.child("foods").child("총_단백질").setValue(String(Double(totalProtein)! + protein))
+            } else {
+                database.child("foods").child("총_단백질").setValue("\(protein)")
+                print("총 단백질 데이터를 가져오지 못했습니다.")
+            }
+        }
+        ref.child("총_지방").observeSingleEvent(of: .value) { (snapshot, arg) in
+            if let totalFat = snapshot.value as? String {
+                database.child("foods").child("총_지방").setValue(String(Double(totalFat)! + fat))
+            } else {
+                database.child("foods").child("총_지방").setValue("\(fat)")
+                print("총 지방 데이터를 가져오지 못했습니다.")
+            }
+        }
+        ref.child("총_칼로리").observeSingleEvent(of: .value) { (snapshot, arg) in
+            if let totalCalorie = snapshot.value as? String {
+                database.child("foods").child("총_칼로리").setValue(String(Double(totalCalorie)! + calorie))
+            } else {
+                database.child("foods").child("총_칼로리").setValue("\(calorie)")
+                print("총 칼로리 데이터를 가져오지 못했습니다.")
+            }
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -114,7 +150,6 @@ struct FoodSearchView: View {
                             Spacer()
                             Button {
                                 selectedFood = food
-                                
                             } label: {
                                 Image(systemName: "plus.circle.fill")
                                     .foregroundColor(.blue)
@@ -125,10 +160,13 @@ struct FoodSearchView: View {
                                       message: Text("단백질(g): \(food.protein)\n지방(g): \(food.fat)\n탄수화물(g): \(food.carbohydrate)"),
                                       primaryButton: .default(Text("추가")) {
                                     foods.append(food)
-                                    
                                     fetchMealTotalCalorieFromFirebase(foodCalorie: Double(food.calorie) ?? 0.0)
+                                    fetchTotalNutrientFromFirebase(carbohydrate: Double(food.carbohydrate) ?? 0.0,
+                                                                   protein: Double(food.protein) ?? 0.0,
+                                                                   fat: Double(food.fat) ?? 0.0,
+                                                                   calorie: Double(food.calorie) ?? 0.0
+                                    )
                                     database.child("foods").child("\(mealsWhen)").child(food.id).setValue(food.toDictionary())
-                                    database.child("foods").child("총_칼로리").setValue(dataModel.totalCalorie) // 경로 수정
                                 },
                                       secondaryButton: .cancel(Text("취소")))
                             }
