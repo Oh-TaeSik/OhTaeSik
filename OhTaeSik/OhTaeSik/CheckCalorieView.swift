@@ -38,10 +38,8 @@ struct CheckCalorieView: View {
                             DietView()
                                 .navigationBarTitle("아침", displayMode: .inline)
                         } label: {
-                            Image(systemName: "hourglass.bottomhalf.filled")
+                            Image("sandwich")
                                 .resizable()
-                                .foregroundStyle(.brown, .brown, .white)
-                                .background(.gray)
                                 .frame(width: 40, height: 40)
                             HStack {
                                 Text("아침")
@@ -75,9 +73,8 @@ struct CheckCalorieView: View {
                             DietView()
                                 .navigationBarTitle("점심", displayMode: .inline)
                         } label: {
-                            Image(systemName: "cup.and.saucer.fill")
+                            Image("sushi")
                                 .resizable()
-                                .foregroundStyle(.brown, .brown, .white)
                                 .frame(width: 40, height: 40)
                             HStack {
                                 Text("점심")
@@ -110,9 +107,8 @@ struct CheckCalorieView: View {
                             DietView()
                                 .navigationBarTitle("저넉", displayMode: .inline)
                         } label: {
-                            Image(systemName: "fork.knife.circle")
+                            Image("chicken")
                                 .resizable()
-                                .foregroundStyle(.brown, .brown, .white)
                                 .frame(width: 40, height: 40)
                             HStack {
                                 Text("저녁")
@@ -145,9 +141,8 @@ struct CheckCalorieView: View {
                             DietView()
                                 .navigationBarTitle("간식", displayMode: .inline)
                         } label: {
-                            Image(systemName: "birthday.cake")
+                            Image("cake")
                                 .resizable()
-                                .foregroundStyle(.brown, .brown, .white)
                                 .frame(width: 40, height: 40)
                             HStack {
                                 Text("간식")

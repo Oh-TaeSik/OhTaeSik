@@ -34,7 +34,7 @@ public struct PieChartView: View {
         return tempSlices
     }
     
-    public init(values:[Double], names: [String], formatter: @escaping (Double) -> String, colors: [Color] = [Color.blue, Color.green, Color.orange], backgroundColor: Color = Color(red: 21 / 255, green: 24 / 255, blue: 30 / 255, opacity: 1.0), widthFraction: CGFloat = 0.75, innerRadiusFraction: CGFloat = 0.60){
+    public init(values:[Double], names: [String], formatter: @escaping (Double) -> String, colors: [Color] = [Color.green, Color.blue, Color.orange], backgroundColor: Color = Color(red: 21 / 255, green: 24 / 255, blue: 30 / 255, opacity: 1.0), widthFraction: CGFloat = 0.75, innerRadiusFraction: CGFloat = 0.60){
         self.values = values
         self.names = names
         self.formatter = formatter
@@ -97,10 +97,28 @@ public struct PieChartView: View {
                     
                 }
                 PieChartRows(colors: self.colors, names: self.names, values: self.values.map { self.formatter($0) }, percents: self.values.map { String(format: "%.0f%%", $0 * 100 / self.values.reduce(0, +)) })
-                Image(systemName: "figure.run")
-                    .resizable()
-                    .frame(width: 200, height: 200)
-                    
+                GeometryReader { gr in
+                    Path { g in
+                        let rect = CGRect(origin: .zero, size: gr.size) // 그림을 그릴 수 있는 사각형
+                        g.move(to: CGPoint(x: rect.size.width/2, y: 0))
+                        g.addQuadCurve(
+                            to: CGPoint(x: rect.size.width/2, y: rect.size.height),
+                            control: CGPoint(x: rect.width, y: rect.height)
+                        )
+                        g.addQuadCurve(
+                            to: CGPoint(x: rect.size.width/2, y: 0),
+                            control: CGPoint(x: 0, y: rect.height)
+                        )
+                    }
+                    .fill(
+                        LinearGradient(
+                            gradient: Gradient (
+                                colors: [Color.green, Color.blue, Color.orange]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+                }
             }
             .background(self.backgroundColor)
             .foregroundColor(Color.white)
