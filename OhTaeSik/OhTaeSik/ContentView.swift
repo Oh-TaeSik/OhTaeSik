@@ -6,21 +6,33 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import FirebaseCore
+
+class DataModel: ObservableObject {
+    @Published var meals: String = ""
+    @Published var totalCalorie: Double = 0
+}
 
 struct ContentView: View {
     @State var isLoading: Bool = true
+    @ObservedObject var appState = AppState()
+    @StateObject var dataModel = DataModel()
         
         var body: some View {
             ZStack {
-                VStack {
-                    Text("Hello, world")
-                }
-                .padding()
+                GoogleSignInView(signInData: SignInData(url:nil, name:"", email:""))
+                    .onOpenURL { url in GIDSignIn.sharedInstance.handle(url)
+                    }
+                    .id(appState.rootViewId)
+                    .environmentObject(appState)
+                    .environmentObject(dataModel)
                 
                 if isLoading {
                     LaunchScreenView().transition(.opacity).zIndex(1)
                 }
             }
+            
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                     withAnimation { isLoading.toggle() }
