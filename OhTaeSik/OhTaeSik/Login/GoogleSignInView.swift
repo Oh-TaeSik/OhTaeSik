@@ -11,68 +11,10 @@ import GoogleSignIn
 import GoogleSignInSwift
 import Firebase
 
-//class Signin_withGoogle_VM: ObservableObject {
-//    @Published var isLoginSuccessed = false
-//
-//    func signInWithGoogle() {
-//        guard let clientID = FirebaseApp.app()?.options.clientID else {
-//            fatalError("No client ID found in Firebase configuration")
-//        }
-//        let config = GIDConfiguration(clientID: clientID)
-//        GIDSignIn.sharedInstance.configuration = config
-//
-//        // Sign in method with updated code
-//        if let presentingViewController = UIApplication.shared.windows.first?.rootViewController {
-//            GIDSignIn.sharedInstance.signIn(withPresenting: presentingViewController) { user, error in
-//                // Handle signIn completion here
-//            }
-//        }
-//    }
-//}
-
-//class Signin_withGoogle_VM: ObservableObject {
-//    @Published var isLoginSuccessed = false
-//
-//    func signInWithGoogle() {
-//        guard let clientID = FirebaseApp.app()?.options.clientID else {
-//            fatalError("No client ID found in Firebase configuration")
-//        }
-//        let config = GIDConfiguration(clientID: clientID)
-//        GIDSignIn.sharedInstance.configuration = config
-//
-//        //sign in method goes here
-//        GIDSignIn.sharedInstance.signIn(
-//            withPresenting: Application_utility.rootViewController) { user, error in
-//                if let error = error {
-//                    print(error.localizedDescription)
-//                    return
-//                }
-//                guard
-//                    let user = user?.user,
-//                    let idToken = user.idToken else {return}
-//
-//                let accessToken = user.accessToken
-//
-//                let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString,
-//                                                               accessToken: accessToken.tokenString)
-//
-//                Auth.auth().signIn(with: credential) { res, error in
-//                    if let error = error {
-//                        print(error.localizedDescription)
-//                        return
-//                    }
-//                    guard let user = res?.user else {return}
-//                    print(user)
-//                }
-//        }
-//    }
-//}
 struct GoogleSignInView: View {
     @State var isLogined = false
     @State var isAlert = false
     @State var signInData: SignInData
-//    @StateObject private var vm = Signin_withGoogle_VM()
-//    typealias UIViewControllerType = UIViewController
     
         public init(isLogined: Bool = false, signInData: SignInData) {
             _isLogined = State(initialValue: isLogined)
@@ -82,15 +24,20 @@ struct GoogleSignInView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Button {
-                    googleLogin()
-//                    vm.signInWithGoogle()
-                } label: {
-                    Text("구글 로그인")
+                VStack(spacing: 100) {
+                    Text("오태식")
+                        .font(.system(size: 100, weight: .semibold))
+                        .shadow(color: .gray, radius: 5, x: 2, y: 2)
+                    Button {
+                        googleLogin()
+                    } label: {
+                        Image("googleLogin")
+                            .resizable()
+                            .frame(width: 320, height: 55)
+                    }
                 }
             }.navigationDestination(isPresented: $isLogined, destination: {
                 AddNewUserInfoView(userStore: UserStore(), signInData: $signInData)
-                //                AddNewUserInfoView(userData: User(id: "", name: "", weight: "", height: "", birth: Date.now, gender: 0, calorie: 0.0), signInData: $signInData)
             })
         }
         .onAppear(perform: {
