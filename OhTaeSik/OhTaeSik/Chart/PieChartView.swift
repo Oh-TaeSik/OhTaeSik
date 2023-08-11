@@ -20,7 +20,8 @@ public struct PieChartView: View {
     public var innerRadiusFraction: CGFloat
     
     @State private var activeIndex: Int = -1
-    
+    @StateObject var viewModel = ReadViewModel()
+
     var slices: [PieSliceData] {
         let sum = values.reduce(0, +)
         var endDeg: Double = 0
@@ -34,7 +35,7 @@ public struct PieChartView: View {
         return tempSlices
     }
     
-    public init(values:[Double], names: [String], formatter: @escaping (Double) -> String, colors: [Color] = [Color.blue, Color.green, Color.orange], backgroundColor: Color = Color(red: 21 / 255, green: 24 / 255, blue: 30 / 255, opacity: 1.0), widthFraction: CGFloat = 0.75, innerRadiusFraction: CGFloat = 0.60){
+    public init(values:[Double], names: [String], formatter: @escaping (Double) -> String, colors: [Color] = [Color.pink, Color.mint, Color.yellow], backgroundColor: Color = Color(red: 21 / 255, green: 24 / 255, blue: 30 / 255, opacity: 1.0), widthFraction: CGFloat = 0.75, innerRadiusFraction: CGFloat = 0.60){
         self.values = values
         self.names = names
         self.formatter = formatter
@@ -91,16 +92,41 @@ public struct PieChartView: View {
                         Text(self.activeIndex == -1 ? "Total" : names[self.activeIndex])
                             .font(.title)
                             .foregroundColor(Color.gray)
-                        Text(self.formatter(self.activeIndex == -1 ? values.reduce(0, +) : values[self.activeIndex]))
-                            .font(.title)
+                        if viewModel.totalCalorie != nil {
+                            Text(self.formatter(self.activeIndex == -1 ? Double(viewModel.totalCalorie ?? "0") ?? 0.0 : values[self.activeIndex]))
+                                .font(.title)
+                        } else {
+                            Text("0 kcal")
+                                .font(.title)
+                        }
                     }
-                    
+                    .onAppear() {
+                        viewModel.observeTotalCalorie()
+                    }
                 }
                 PieChartRows(colors: self.colors, names: self.names, values: self.values.map { self.formatter($0) }, percents: self.values.map { String(format: "%.0f%%", $0 * 100 / self.values.reduce(0, +)) })
-                Image(systemName: "figure.run")
-                    .resizable()
-                    .frame(width: 200, height: 200)
-                    
+                GeometryReader { gr in
+                    Path { g in
+                        let rect = CGRect(origin: .zero, size: gr.size) // 그림을 그릴 수 있는 사각형
+                        g.move(to: CGPoint(x: rect.size.width/2, y: 0))
+                        g.addQuadCurve(
+                            to: CGPoint(x: rect.size.width/2, y: rect.size.height),
+                            control: CGPoint(x: rect.width, y: rect.height)
+                        )
+                        g.addQuadCurve(
+                            to: CGPoint(x: rect.size.width/2, y: 0),
+                            control: CGPoint(x: 0, y: rect.height)
+                        )
+                    }
+                    .fill(
+                        LinearGradient(
+                            gradient: Gradient (
+                                colors: [Color.pink, Color.mint, Color.yellow]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+                }
             }
             .background(self.backgroundColor)
             .foregroundColor(Color.white)
@@ -112,7 +138,7 @@ public struct PieChartView: View {
 @available(iOS 13.0, *)
 struct PieChartView_Previews: PreviewProvider {
     static var previews: some View {
-        PieChartView(values: [1234, 543, 995], names: ["탄수화물", "단백질", "지방"], formatter: {value in String(format: "%.1f(kcal)", value)})
+        PieChartView(values: [12, 543, 995], names: ["탄수화물", "단백질", "지방"], formatter: {value in String(format: "%.1f(g)", value)})
     }
 }
 
