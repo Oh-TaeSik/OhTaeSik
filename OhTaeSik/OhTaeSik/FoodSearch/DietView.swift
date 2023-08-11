@@ -8,15 +8,15 @@
 import SwiftUI
 import FirebaseDatabase
 struct DietView: View {
-//    @State private var calorieTotal: Double = 0 // 칼로리 총량을 저장할 @State 변수 추가
     @State private var foods: [Food] = [] // 음식들을 배열로 관리합니다
-    
     @EnvironmentObject var dataModel: DataModel
-    
+    @StateObject var viewModel = ReadViewModel()
+    @Binding var mealsWhen: String // 아침, 점심, 저녁
+
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-                ForEach(foods) { food in // 배열로부터 음식을 렌더링합니다
+                ForEach(viewModel.foods, id: \.self) { food in // 배열로부터 음식을 렌더링합니다
                     HStack {
                         Image(systemName: "fork.knife.circle")
                             .resizable()
@@ -32,6 +32,9 @@ struct DietView: View {
                 }
                 .padding()
             }
+            .onAppear() {
+                viewModel.observeFoodChange(tag: mealsWhen)
+            }
 //            .navigationBarItems(
 //                trailing:
 //                    NavigationLink(
@@ -46,9 +49,9 @@ struct DietView: View {
     
 }
 
-//
-//struct DietView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DietView(mealscheck: <#Binding<String>#>) // 초기값을 넣어줍니다.
-//    }
-//}
+
+struct DietView_Previews: PreviewProvider {
+    static var previews: some View {
+        DietView(mealsWhen: .constant("아침")) // 초기값을 넣어줍니다.
+    }
+}
