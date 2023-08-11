@@ -19,16 +19,15 @@ struct ContentView: View {
     @State var isLoading: Bool = true
     @ObservedObject var appState = AppState()
     @StateObject var dataModel = DataModel()
+    @StateObject var viewModel = UserReadViewModel()
     @StateObject private var vm = GoogleSignInViewModel()
         
         var body: some View {
             ZStack {
                 let user = Auth.auth().currentUser
-                if let user = user {
-                    let uid = user.uid
-                    let email = user.email
-                    let photoURL = user.photoURL
+                if let userUid = user?.uid {
                     AppTabBarView()
+                        .environmentObject(appState)
                 } else {
                     GoogleSignInView()
                         .onOpenURL { url in GIDSignIn.sharedInstance.handle(url)
