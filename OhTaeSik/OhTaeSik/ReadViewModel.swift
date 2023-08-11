@@ -12,7 +12,8 @@ import FirebaseDatabaseSwift
 class ReadViewModel: ObservableObject {
     var ref = Database.database().reference()
     @Published var values: [String?] = [nil, nil, nil, nil] // 배열로 변경
-    @Published var totalCalorie: String? = nil
+    @Published var totalCalorie: Double = 0.0
+    
     func readValue(index: Int) { // 쓰는거 아니고 수정할 수 있음 수정함
         ref.child("foods").child("\(index)").observeSingleEvent(of: .value) { snapshot in
             if let newValue = snapshot.value as? String {
@@ -32,7 +33,7 @@ class ReadViewModel: ObservableObject {
     func observeTotalCalorie() {
         ref.child("foods").child("총_칼로리").observe(.value) { snapshot in
             if let newValue = snapshot.value as? String {
-                self.totalCalorie = newValue
+                self.totalCalorie = Double(newValue)!
             }
         }
     }
