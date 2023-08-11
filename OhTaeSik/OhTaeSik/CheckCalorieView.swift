@@ -22,20 +22,23 @@ struct CheckCalorieView: View {
         NavigationView {
             VStack {
                 NavigationLink {
-                    PieChartView(values: [1234, 543, 995], names: ["탄수화물", "단백질", "지방"], formatter: {value in String(format: "%.1f(kcal)", value)})
+                    PieChartView(values: viewModel.totalNutrients,
+                                 names: ["탄수화물", "단백질", "지방"],
+                                 formatter: {value in String(format: "%.1f(kcal)", value)})
                 } label: {
                     SummaryView(viewModel: viewModel)
                         .navigationTitle("오태식")
                 }
                 .onAppear() {
                     viewModel.observeTotalCalorie()
+                    viewModel.observeTotalNutrients()
                 }
                 Spacer()
                     .frame(height: 60)
                 VStack {
                     HStack {
                         NavigationLink {
-                            DietView()
+                            DietView(mealsWhen: $tag[0])
                                 .navigationBarTitle("아침", displayMode: .inline)
                         } label: {
                             Image("sandwich")
@@ -72,7 +75,7 @@ struct CheckCalorieView: View {
                     
                     HStack {
                         NavigationLink {
-                            DietView()
+                            DietView(mealsWhen: $tag[1])
                                 .navigationBarTitle("점심", displayMode: .inline)
                         } label: {
                             Image("sushi")
@@ -107,7 +110,7 @@ struct CheckCalorieView: View {
                     
                     HStack {
                         NavigationLink {
-                            DietView()
+                            DietView(mealsWhen: $tag[2])
                                 .navigationBarTitle("저넉", displayMode: .inline)
                         } label: {
                             Image("chicken")
@@ -143,7 +146,7 @@ struct CheckCalorieView: View {
                     
                     HStack {
                         NavigationLink {
-                            DietView()
+                            DietView(mealsWhen: $tag[3])
                                 .navigationBarTitle("간식", displayMode: .inline)
                         } label: {
                             Image("cake")
