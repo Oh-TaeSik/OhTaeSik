@@ -44,9 +44,9 @@ class ReadViewModel: ObservableObject {
     func observeTotalCalorie() {
         fommaterDate.dateFormat = "yyyy-MM-dd"
         monthDate.dateFormat = "MM월"
-        ref.child(monthDate.string(from: date)).child(fommaterDate.string(from: date)).child("foods").child("총_칼로리").observe(.value) { snapshot in
+        ref.child(monthDate.string(from: date)).child(fommaterDate.string(from: date)).child("foods").child("총_칼로리").observe(.value) { (snapshot, arg) in
             if let newValue = snapshot.value as? String {
-                self.totalCalorie = Double(newValue)!
+                self.totalCalorie = newValue
             }
         }
     }

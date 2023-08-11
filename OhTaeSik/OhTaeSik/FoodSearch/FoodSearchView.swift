@@ -8,6 +8,8 @@
 import SwiftUI
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
+
 class FoodData: ObservableObject {
     @Published var foods: [Food] = []
     func fetchData() {
@@ -60,12 +62,14 @@ struct Food: Identifiable, Codable {
 struct FoodSearchView: View {
     @StateObject private var foodData = FoodData()
     @StateObject private var viewModel = ReadViewModel()
+    @StateObject private var userViewModel = UserReadViewModel()
     @State private var searchText = ""
     @State private var showingAlert = false
     @State private var selectedFood: Food? = nil // 선택한 음식 저장 변수
     @State private var mealsTotalCalorie = 0.0
     @State private var date = Date()
     @EnvironmentObject var dataModel: DataModel
+    private let user = Auth.auth().currentUser
     
     @Binding var foods: [Food] // 배열로 변경된 바인딩
     @Binding var mealsWhen: String // 아침, 점심, 저녁
@@ -173,6 +177,7 @@ struct FoodSearchView: View {
                             .padding(.horizontal)
                             .onAppear() {
                                 viewModel.observeTotalCalorie()
+                                userViewModel.observeCalorieData(uid: user!.uid)
                             }
                             .alert(item: $selectedFood) { food in
                                 Alert(title: Text("영양성분"),
@@ -188,11 +193,13 @@ struct FoodSearchView: View {
                                     if let currentTotalCalorie = Double(viewModel.totalCalorie ?? "0.0"),
                                        let foodCalorie = Double(food.calorie) {
                                         let totalCalorie = currentTotalCalorie + foodCalorie
-                                        if totalCalorie < 1000.0 {
+                                        if totalCalorie < userViewModel.user.calorie {
+                                            
+                                            print("userViewModel.user.calorie \(userViewModel.user.calorie)")
                                             print("총 칼로리 값: \(totalCalorie)")
                                             fetchIsGoalFromFirebase(goal: "True")
                                         } else {
-                                            print("총 칼로리 값: \(totalCalorie)")
+                                            print("총 칼로리 값: \(totalCalorie) \(userViewModel.user.calorie)")
                                             fetchIsGoalFromFirebase(goal: "False")
                                         }
                                     } else {

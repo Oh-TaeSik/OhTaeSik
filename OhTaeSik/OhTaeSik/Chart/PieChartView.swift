@@ -35,7 +35,7 @@ public struct PieChartView: View {
         return tempSlices
     }
     
-    public init(values:[Double], names: [String], formatter: @escaping (Double) -> String, colors: [Color] = [Color.green, Color.blue, Color.orange], backgroundColor: Color = Color(red: 21 / 255, green: 24 / 255, blue: 30 / 255, opacity: 1.0), widthFraction: CGFloat = 0.75, innerRadiusFraction: CGFloat = 0.60){
+    public init(values:[Double], names: [String], formatter: @escaping (Double) -> String, colors: [Color] = [Color.pink, Color.mint, Color.yellow], backgroundColor: Color = Color(red: 21 / 255, green: 24 / 255, blue: 30 / 255, opacity: 1.0), widthFraction: CGFloat = 0.75, innerRadiusFraction: CGFloat = 0.60){
         self.values = values
         self.names = names
         self.formatter = formatter
@@ -121,7 +121,7 @@ public struct PieChartView: View {
                     .fill(
                         LinearGradient(
                             gradient: Gradient (
-                                colors: [Color.green, Color.blue, Color.orange]),
+                                colors: [Color.pink, Color.mint, Color.yellow]),
                             startPoint: .top,
                             endPoint: .bottom
                         )

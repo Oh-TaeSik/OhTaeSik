@@ -218,8 +218,8 @@ struct SummaryView: View {
                     Text("섭취 칼로리")
                         .bold()
                         .font(.system(size: 18))
-                    if viewModel.totalCalorie != 0 {
-                        Text("\(String(format: "%.1f", viewModel.totalCalorie)) kcal")
+                    if viewModel.totalCalorie != nil {
+                        Text("\(String(format: "%.1f", Double(viewModel.totalCalorie!)!)) kcal")
                     } else {
                         Text("0 kcal")
                     }
@@ -228,7 +228,11 @@ struct SummaryView: View {
                     Text("잔여 칼로리")
                         .bold()
                         .font(.system(size: 18))
-                    Text("\(String(format: "%.1f", (userViewModel.user.calorie - viewModel.totalCalorie))) kcal")
+                    if viewModel.totalCalorie != nil {
+                        Text("\(String(format: "%.1f", (userViewModel.user.calorie - Double(viewModel.totalCalorie!)!))) kcal")
+                    } else {
+                        Text("0 kcal")
+                    }
                 }
                 .onAppear() {
                     userViewModel.observeCalorieData(uid: user!.uid)

@@ -17,15 +17,19 @@ struct DietView: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 ForEach(viewModel.foods, id: \.self) { food in // 배열로부터 음식을 렌더링합니다
-                    HStack {
+                    HStack(spacing: 20) {
                         Image(systemName: "fork.knife.circle")
                             .resizable()
                             .frame(width: 60, height: 60)
                         VStack {
-                            Text("식품명: \(food.id)")
+                            Text("\(food.id)")
+                                .font(.system(size: 24))
+                                .bold()
+                                .padding(5)
                             Text("탄수화물: \(food.carbohydrate)")
                             Text("단백질: \(food.protein)")
                             Text("지방: \(food.fat)")
+                            Text("칼로리: \(food.calorie)")
 //                            Text("총칼로리: \(calorieTotal)")
                         }
                     }
