@@ -10,7 +10,6 @@ import Foundation
 import FirebaseDatabase
 class FoodData: ObservableObject {
     @Published var foods: [Food] = []
-
     func fetchData() {
         // 파이어베이스의 데이터베이스 참조 생성
         let ref = Database.database().reference().child("식품")
@@ -33,7 +32,7 @@ class FoodData: ObservableObject {
     }
 }
 
-struct Food: Identifiable, Codable{
+struct Food: Identifiable, Codable {
     var id: String
     var protein: String
     var fat: String
@@ -59,71 +58,90 @@ struct Food: Identifiable, Codable{
 }
 
 struct FoodSearchView: View {
-    
     @StateObject private var foodData = FoodData()
+    @StateObject private var viewModel = ReadViewModel()
     @State private var searchText = ""
     @State private var showingAlert = false
     @State private var selectedFood: Food? = nil // 선택한 음식 저장 변수
     @State private var mealsTotalCalorie = 0.0
-    
+    @State private var date = Date()
+
     @EnvironmentObject var foodSettings: FoodSettings
     @EnvironmentObject var dataModel: DataModel
     
     @Binding var foods: [Food] // 배열로 변경된 바인딩
-    @Binding var mealsWhen: String // 아침, 점심 저녁
-    
+    @Binding var mealsWhen: String // 아침, 점심, 저녁
+
+    let fommaterDate = DateFormatter()
+    let monthDate = DateFormatter()
     let database = Database.database().reference()
-    
+
     private func fetchMealTotalCalorieFromFirebase(foodCalorie: Double) {
-        
-        let ref = database.child("foods").child(mealsWhen)
+        fommaterDate.dateFormat = "yyyy-MM-dd"
+        monthDate.dateFormat = "MM월"
+        let ref = database.child(monthDate.string(from: date)).child(fommaterDate.string(from: date)).child("foods").child(mealsWhen)
                 // 현재 식사 총 칼로리 가져오기
         ref.child("식사_총_칼로리").observeSingleEvent(of: .value) { (snapshot, arg) in
             if let totalCalories = snapshot.value as? String {
-                database.child("foods").child("\(mealsWhen)").child("식사_총_칼로리").setValue(String(Double(totalCalories)! + foodCalorie))
+                ref.child("식사_총_칼로리").setValue(String(Double(totalCalories)! + foodCalorie))
             } else {
-                database.child("foods").child("\(mealsWhen)").child("식사_총_칼로리").setValue("\(foodCalorie)")
+                ref.child("식사_총_칼로리").setValue("\(foodCalorie)")
                 print("식사 총 칼로리 데이터를 가져오지 못했습니다.")
             }
         }
     }
     private func fetchTotalNutrientFromFirebase(carbohydrate: Double, protein: Double, fat: Double, calorie: Double) {
-        let ref = database.child("foods")
+        fommaterDate.dateFormat = "yyyy-MM-dd"
+        monthDate.dateFormat = "MM월"
+        let ref = database.child(monthDate.string(from: date)).child(fommaterDate.string(from: date)).child("foods")
                 // 현재 식사 총 칼로리 가져오기
         ref.child("총_탄수화물").observeSingleEvent(of: .value) { (snapshot, arg) in
             if let totalCarbonhydrate = snapshot.value as? String {
-                database.child("foods").child("총_탄수화물").setValue(String(Double(totalCarbonhydrate)! + carbohydrate))
+                ref.child("총_탄수화물").setValue(String(Double(totalCarbonhydrate)! + carbohydrate))
             } else {
-                database.child("foods").child("총_탄수화물").setValue("\(carbohydrate)")
+                ref.child("총_탄수화물").setValue("\(carbohydrate)")
                 print("총 탄수화물 데이터를 가져오지 못했습니다.")
             }
         }
         ref.child("총_단백질").observeSingleEvent(of: .value) { (snapshot, arg) in
             if let totalProtein = snapshot.value as? String {
-                database.child("foods").child("총_단백질").setValue(String(Double(totalProtein)! + protein))
+                ref.child("총_단백질").setValue(String(Double(totalProtein)! + protein))
             } else {
-                database.child("foods").child("총_단백질").setValue("\(protein)")
+                ref.child("총_단백질").setValue("\(protein)")
                 print("총 단백질 데이터를 가져오지 못했습니다.")
             }
         }
         ref.child("총_지방").observeSingleEvent(of: .value) { (snapshot, arg) in
             if let totalFat = snapshot.value as? String {
-                database.child("foods").child("총_지방").setValue(String(Double(totalFat)! + fat))
+                ref.child("총_지방").setValue(String(Double(totalFat)! + fat))
             } else {
-                database.child("foods").child("총_지방").setValue("\(fat)")
+                ref.child("총_지방").setValue("\(fat)")
                 print("총 지방 데이터를 가져오지 못했습니다.")
             }
         }
         ref.child("총_칼로리").observeSingleEvent(of: .value) { (snapshot, arg) in
             if let totalCalorie = snapshot.value as? String {
-                database.child("foods").child("총_칼로리").setValue(String(Double(totalCalorie)! + calorie))
+                ref.child("총_칼로리").setValue(String(Double(totalCalorie)! + calorie))
             } else {
-                database.child("foods").child("총_칼로리").setValue("\(calorie)")
+                ref.child("총_칼로리").setValue("\(calorie)")
                 print("총 칼로리 데이터를 가져오지 못했습니다.")
             }
         }
     }
-    
+    private func fetchIsGoalFromFirebase(goal: String) {
+        fommaterDate.dateFormat = "yyyy-MM-dd"
+        monthDate.dateFormat = "MM월"
+        let ref = database.child(monthDate.string(from: date)).child(fommaterDate.string(from: date)).child("목표 달성 여부")
+        ref.setValue(goal)
+//        ref.observe(.value) { snapshot in
+//            if let isGoal = snapshot.value as? String {
+//                ref.setValue(isGoal)
+//            } else {
+//                ref.setValue("False")
+//                print("목표 달성 여부 데이터를 가져오지 못했습니다.")
+//            }
+//        }
+    }
     var body: some View {
         NavigationView {
             VStack {
@@ -155,6 +173,9 @@ struct FoodSearchView: View {
                                     .foregroundColor(.blue)
                             }
                             .padding(.horizontal)
+                            .onAppear() {
+                                viewModel.observeTotalCalorie()
+                            }
                             .alert(item: $selectedFood) { food in
                                 Alert(title: Text("영양성분"),
                                       message: Text("단백질(g): \(food.protein)\n지방(g): \(food.fat)\n탄수화물(g): \(food.carbohydrate)"),
@@ -166,7 +187,20 @@ struct FoodSearchView: View {
                                                                    fat: Double(food.fat) ?? 0.0,
                                                                    calorie: Double(food.calorie) ?? 0.0
                                     )
-                                    database.child("foods").child("\(mealsWhen)").child(food.id).setValue(food.toDictionary())
+                                    if let currentTotalCalorie = Double(viewModel.totalCalorie ?? "0.0"),
+                                       let foodCalorie = Double(food.calorie) {
+                                        let totalCalorie = currentTotalCalorie + foodCalorie
+                                        if totalCalorie < 1000.0 {
+                                            print("총 칼로리 값: \(totalCalorie)")
+                                            fetchIsGoalFromFirebase(goal: "True")
+                                        } else {
+                                            print("총 칼로리 값: \(totalCalorie)")
+                                            fetchIsGoalFromFirebase(goal: "False")
+                                        }
+                                    } else {
+                                        fetchIsGoalFromFirebase(goal: "False")
+                                    }
+                                    database.child(monthDate.string(from: date)).child(fommaterDate.string(from: date)).child("foods").child("\(mealsWhen)").child(food.id).setValue(food.toDictionary())
                                 },
                                       secondaryButton: .cancel(Text("취소")))
                             }
