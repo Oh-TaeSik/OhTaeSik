@@ -12,58 +12,25 @@ import FirebaseDatabase
 
 struct MyPageView: View {
     @EnvironmentObject var appState: AppState
-    @State var nickname: String = ""
-    let database = Database.database().reference()
-    let user = Auth.auth().currentUser
+    @StateObject var viewModel = UserReadViewModel()
+    private let database = Database.database().reference()
+    private let user = Auth.auth().currentUser
     private var userName: String = ""
     private var height: String = ""
     private var weight: String = ""
     private var calorie: String = ""
     
-    private func fetchMealTotalCalorieFromFirebase(foodCalorie: Double) {
-        
-        if let user = Auth.auth().currentUser {
-            Database.database().reference().child("users").child("\(user.uid)").child("name").observe(.value) { snapshot in
-                if let name = snapshot.value as? String {
-                    userName = name
-                }
-            }
-        }
-        
-        if let user = Auth.auth().currentUser {
-            Database.database().reference().child("users").child("\(user.uid)").child("height").observe(.value) { snapshot in
-                if let height = snapshot.value as? String {
-                    self.height = height
-                }
-            }
-        }
-        
-        if let user = Auth.auth().currentUser {
-            Database.database().reference().child("users").child("\(user.uid)").child("weight").observe(.value) { snapshot in
-                if let weight = snapshot.value as? String {
-                    self.weight = weight
-                }
-            }
-        }
-        
-        if let user = Auth.auth().currentUser {
-            Database.database().reference().child("users").child("\(user.uid)").child("calorie").observe(.value) { snapshot in
-                if let calorie = snapshot.value as? String {
-                    self.calorie = calorie
-                }
-            }
-        }
-    }
-    
     var body: some View {
         VStack(spacing: 10){
+            
             Rectangle()
                 .foregroundColor(.gray)
                 .frame(height: 180)
                 .scaledToFill()
             
+            
             VStack(spacing: 70){
-                AsyncImage(url: URL(string: ""))
+                AsyncImage(url: user?.photoURL)
                     .imageScale(.small)
                     .foregroundColor(Color.white)
                     .frame(width: 130, height: 130)
@@ -72,37 +39,52 @@ struct MyPageView: View {
                         Circle().stroke(Color.gray, lineWidth: 4))
                     .offset(y: -80)
                     .padding(.bottom, -130)
-                Text(userName)
+                
+                Text(viewModel.user.name)
                     .bold()
                     .font(.title)
                 
             }
+            .onAppear() {
+                viewModel.observeNameData(uid: user!.uid)
+            }
             
             VStack(spacing: 5){
-                Text(height)
+                Text(viewModel.user.height + "cm")
                     .font(.system(size: 20, weight: .semibold))
                 
-                Text(weight)
+                Text(viewModel.user.weight + "kg")
                     .font(.system(size: 20, weight: .semibold))
                     
+            }.onAppear() {
+                viewModel.observeHeightData(uid: user!.uid)
+                viewModel.observeWeightData(uid: user!.uid)
             }.padding(30)
+            
             
             VStack(spacing: 30) {
                 Text("1일 권장 칼로리")
                     .foregroundColor(Color.red)
                     .font(.system(size: 24, weight: .semibold))
                     .shadow(radius: 2)
-                Text(String(calorie) + "kcal")
+                Text(String(viewModel.user.calorie) + "kcal")
                     .font(.system(size: 26, weight: .bold))
                     .shadow(radius: 2)
+            }.onAppear() {
+                viewModel.observeCalorieData(uid: user!.uid)
             }.padding(40)
                 .background(Color(uiColor: .secondarySystemBackground))
                 .cornerRadius(14)
             
             VStack {
                 Button {
-                    GIDSignIn.sharedInstance.signOut()
-                    appState.rootViewId = UUID()
+                    do {
+                        try Auth.auth().signOut()
+                        appState.rootViewId = UUID()
+                    }
+                    catch {
+                        print("signOut error")
+                    }
                 } label: {
                     Text("로그아웃")
                         .padding(50)
