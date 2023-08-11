@@ -64,7 +64,7 @@ struct InputInfoView: View {
             }
             
             ZStack{
-                NavigationLink(destination: AppTabBarView(signInData: $signInData, userData: .constant(User(id: "", name: signInData.name, weight: weight, height: height, birth: birth, gender: selected, calorie: 0.0))) , tag: 1, selection: self.$tag ) {
+                NavigationLink(destination: AppTabBarView() , tag: 1, selection: self.$tag ) {
                     EmptyView()
                 }
                 

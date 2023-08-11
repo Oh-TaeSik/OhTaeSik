@@ -16,11 +16,11 @@ class ReadViewModel: ObservableObject {
     
     var ref = Database.database().reference()
     @Published var values: [String?] = [nil, nil, nil, nil] // 배열로 변경
-    @Published var totalCalorie: String? = nil
     @Published var totalNutrients: [Double] = [0.0, 0.0, 0.0]
     @Published var foodsValues: [String?] = [nil, nil, nil, nil, nil]
     @Published var foods: [FoodRead] = []
     @Published var goals: [FirebaseIsGoal] = []
+    @Published var totalCalorie: String? = nil
     
     func readValue(index: Int) { // 쓰는거 아니고 수정할 수 있음 수정함
         fommaterDate.dateFormat = "yyyy-MM-dd"
@@ -46,7 +46,7 @@ class ReadViewModel: ObservableObject {
         monthDate.dateFormat = "MM월"
         ref.child(monthDate.string(from: date)).child(fommaterDate.string(from: date)).child("foods").child("총_칼로리").observe(.value) { snapshot in
             if let newValue = snapshot.value as? String {
-                self.totalCalorie = newValue
+                self.totalCalorie = Double(newValue)!
             }
         }
     }

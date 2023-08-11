@@ -6,18 +6,20 @@
 //
 
 import SwiftUI
+import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 struct CheckCalorieView: View {
-    @State private var foods: [Food] = [] // 음식들을 배열로 관리합니다
+    @StateObject var viewModel = ReadViewModel()
     @EnvironmentObject var dataModel: DataModel
+    @State private var foods: [Food] = [] // 음식들을 배열로 관리합니다
     @State private var isActive: Bool = false
     @State private var tag: [String] = ["아침", "점심", "저녁", "간식"]
     @State private var mealTotalCalorie = ["", "", "", ""]
-    let foodSettings = FoodSettings()
+    private let database = Database.database().reference()
     
-    let database = Database.database().reference()
-    @StateObject var viewModel = ReadViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -44,58 +46,63 @@ struct CheckCalorieView: View {
                             Image("sandwich")
                                 .resizable()
                                 .frame(width: 40, height: 40)
-                            HStack {
-                                Text("아침")
-                                if viewModel.values[0] != nil {
-                                    Text("\(viewModel.values[0]!) kcal")
-                                } else {
-                                    Text("0 kcal")
+                            VStack (alignment: .leading){
+                                HStack {
+                                    Text("아침")
+                                    if viewModel.values[0] != nil {
+                                        Text("\(viewModel.values[0]!) kcal")
+                                    } else {
+                                        Text("0 kcal")
+                                    }
                                 }
+                                .foregroundColor(.black)
                             }
-                            .foregroundColor(.black)
                         }
                         .onAppear() {
                             viewModel.observeDataChange(tag: tag[0], index: 0)
                         }
                         Spacer()
-                            .frame(width: 70)
+                            .frame(width: 80)
+                        
                         NavigationLink {
                             FoodSearchView(foods: $foods, mealsWhen: $tag[0])
                                 .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
                                 .environmentObject(DataModel())
-                                .environmentObject(foodSettings)
                         } label: {
                             Image(systemName: "plus.circle.fill")
                                 .foregroundColor(.black)
+                                .frame(alignment: .trailing)
 
                         }
                     }
                     Divider()
-                        .frame(width: 300, height: 10 )
+                        .frame(height: 1)
                     
                     HStack {
                         NavigationLink {
                             DietView(mealsWhen: $tag[1])
                                 .navigationBarTitle("점심", displayMode: .inline)
-                        } label: {
+                        } label: { 
                             Image("sushi")
                                 .resizable()
                                 .frame(width: 40, height: 40)
-                            HStack {
-                                Text("점심")
-                                if viewModel.values[1] != nil {
-                                    Text("\(viewModel.values[1]!) kcal")
-                                } else {
-                                    Text("0 kcal")
+                            VStack (alignment: .leading) {
+                                HStack {
+                                    Text("점심")
+                                    if viewModel.values[1] != nil {
+                                        Text("\(viewModel.values[1]!) kcal")
+                                    } else {
+                                        Text("0 kcal")
+                                    }
                                 }
+                                .foregroundColor(.black)
                             }
-                            .foregroundColor(.black)
                         }
                         .onAppear() {
                             viewModel.observeDataChange(tag: tag[1], index: 1)
                         }
                         Spacer()
-                            .frame(width: 70)
+                            .frame(width: 80)
                         NavigationLink {
                             FoodSearchView(foods: $foods, mealsWhen: $tag[1])
                                 .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
@@ -106,7 +113,7 @@ struct CheckCalorieView: View {
                         }
                     }
                     Divider()
-                        .frame(width: 300, height: 10)
+                        .frame(height: 1)
                     
                     HStack {
                         NavigationLink {
@@ -116,21 +123,23 @@ struct CheckCalorieView: View {
                             Image("chicken")
                                 .resizable()
                                 .frame(width: 40, height: 40)
-                            HStack {
-                                Text("저녁")
-                                if viewModel.values[2] != nil {
-                                    Text("\(viewModel.values[2]!) kcal")
-                                } else {
-                                    Text("0 kcal")
+                            VStack (alignment: .leading) {
+                                HStack {
+                                    Text("저녁")
+                                    if viewModel.values[2] != nil {
+                                        Text("\(viewModel.values[2]!) kcal")
+                                    } else {
+                                        Text("0 kcal")
+                                    }
                                 }
+                                .foregroundColor(.black)
                             }
-                            .foregroundColor(.black)
                         }
                         .onAppear() {
                             viewModel.observeDataChange(tag: tag[2], index: 2)
                         }
                         Spacer()
-                            .frame(width: 70)
+                            .frame(width: 80)
                         NavigationLink {
                             FoodSearchView(foods: $foods, mealsWhen: $tag[2])
                                 .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
@@ -142,7 +151,7 @@ struct CheckCalorieView: View {
                         }
                     }
                     Divider()
-                        .frame(width: 300, height: 10)
+                        .frame(height: 1)
                     
                     HStack {
                         NavigationLink {
@@ -152,21 +161,23 @@ struct CheckCalorieView: View {
                             Image("cake")
                                 .resizable()
                                 .frame(width: 40, height: 40)
-                            HStack {
-                                Text("간식")
-                                if viewModel.values[3] != nil {
-                                    Text("\(viewModel.values[3]!) kcal")
-                                } else {
-                                    Text("0 kcal")
+                            VStack (alignment: .leading) {
+                                HStack {
+                                    Text("간식")
+                                    if viewModel.values[3] != nil {
+                                        Text("\(viewModel.values[3]!) kcal")
+                                    } else {
+                                        Text("0 kcal")
+                                    }
                                 }
+                                .foregroundColor(.black)
                             }
-                            .foregroundColor(.black)
                         }
                         .onAppear() {
                             viewModel.observeDataChange(tag: tag[3], index: 3)
                         }
                         Spacer()
-                            .frame(width: 70)
+                            .frame(width: 80)
                         NavigationLink {
                             FoodSearchView(foods: $foods, mealsWhen: $tag[3])
                                 .navigationBarTitle("무엇을 드셨나요", displayMode: .inline)
@@ -179,6 +190,7 @@ struct CheckCalorieView: View {
                     }
                 }
                 .padding()
+                .frame(width: UIScreen.main.bounds.width*0.90)
                 .overlay (
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(lineWidth: 1)
@@ -196,6 +208,8 @@ struct CheckCalorieView: View {
 
 struct SummaryView: View {
     @ObservedObject var viewModel = ReadViewModel()
+    @StateObject var userViewModel = UserReadViewModel()
+    private let user = Auth.auth().currentUser
 
     var body: some View {
         VStack {
@@ -204,17 +218,20 @@ struct SummaryView: View {
                     Text("섭취 칼로리")
                         .bold()
                         .font(.system(size: 18))
-                    if viewModel.totalCalorie != nil {
-                        Text("\(viewModel.totalCalorie!) kcal")
+                    if viewModel.totalCalorie != 0 {
+                        Text("\(String(format: "%.1f", viewModel.totalCalorie)) kcal")
                     } else {
-                        Text("0")
+                        Text("0 kcal")
                     }
                 }
                 VStack(spacing:5) {
                     Text("잔여 칼로리")
                         .bold()
                         .font(.system(size: 18))
-                    Text("3232kcal")
+                    Text("\(String(format: "%.1f", (userViewModel.user.calorie - viewModel.totalCalorie))) kcal")
+                }
+                .onAppear() {
+                    userViewModel.observeCalorieData(uid: user!.uid)
                 }
             }
         }

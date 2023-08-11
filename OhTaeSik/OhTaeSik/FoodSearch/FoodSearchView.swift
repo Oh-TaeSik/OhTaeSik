@@ -65,8 +65,6 @@ struct FoodSearchView: View {
     @State private var selectedFood: Food? = nil // 선택한 음식 저장 변수
     @State private var mealsTotalCalorie = 0.0
     @State private var date = Date()
-
-    @EnvironmentObject var foodSettings: FoodSettings
     @EnvironmentObject var dataModel: DataModel
     
     @Binding var foods: [Food] // 배열로 변경된 바인딩
