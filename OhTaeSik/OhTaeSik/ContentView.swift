@@ -8,6 +8,7 @@
 import SwiftUI
 import GoogleSignIn
 import FirebaseCore
+import FirebaseAuth
 
 class DataModel: ObservableObject {
     @Published var meals: String = ""
@@ -18,16 +19,23 @@ struct ContentView: View {
     @State var isLoading: Bool = true
     @ObservedObject var appState = AppState()
     @StateObject var dataModel = DataModel()
+    @StateObject var viewModel = UserReadViewModel()
+    @StateObject private var vm = GoogleSignInViewModel()
         
         var body: some View {
             ZStack {
-                GoogleSignInView(signInData: SignInData(url:nil, name:"", email:""))
-                    .onOpenURL { url in GIDSignIn.sharedInstance.handle(url)
-                    }
-                    .id(appState.rootViewId)
-                    .environmentObject(appState)
-                    .environmentObject(dataModel)
-                
+                let user = Auth.auth().currentUser
+                if let userUid = user?.uid {
+                    AppTabBarView()
+                        .environmentObject(appState)
+                } else {
+                    GoogleSignInView()
+                        .onOpenURL { url in GIDSignIn.sharedInstance.handle(url)
+                        }
+                        .id(appState.rootViewId)
+                        .environmentObject(appState)
+                        .environmentObject(dataModel)
+                }
                 if isLoading {
                     LaunchScreenView().transition(.opacity).zIndex(1)
                 }
