@@ -70,7 +70,7 @@ struct AddNewUserInfoView: View {
             }
             
             Button( action : {
-                userStore.addNewUser(user: User(id: user!.uid, name: name, weight: weight, height: height, birth: birth, gender: gender, calorie: calorie))
+                userStore.addNewUser(user: User(id: user!.uid, name: name, weight: weight, height: height, birth: birth, gender: gender, calorie: ((Double(height)! - 100.0) * 0.9)*33.0))
                 self.tag = 1
             }) {
                 Text("시작하기")
